@@ -1,0 +1,4 @@
+2019-10-14 14:37:57.394-04:00 [CAM-B7NRRD2][D:2][T:17][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.NullReferenceException: Object reference not set to an instance of an object.
+   at AWS.Modules.Warrants.JudgeView.Page_Load(Object sender, EventArgs e) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\JudgeView.aspx.vb:line 217
+2019-10-14 14:38:08.549-04:00 [CAM-B7NRRD2][D:2][T:11][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.NullReferenceException: Object reference not set to an instance of an object.
+   at AWS.Modules.Warrants.JudgeView.Page_Load(Object sender, EventArgs e) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\JudgeView.aspx.vb:line 217

@@ -1,0 +1,441 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="eWarrants" type="Module" version="1.0.0">
+  <friendlyName>eWarrants</friendlyName>
+  <description />
+  <iconFile>/Images/icon_extensions_32px.png</iconFile>
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes />
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>eWarrants</moduleName>
+        <foldername>AWSModules/Warrants</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>eWarrants</friendlyName>
+            <definitionName>eWarrants</definitionName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/AWSModules/Warrants/Warrants.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>adduser</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/AddUser.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Add New User</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>addWarrant</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/EditWarrants.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Upload Warrant</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>adminAgency</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/ManageAgencies.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Agencies</controlTitle>
+                <controlType>Admin</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>adminCounty</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/ManageCounties.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Counties</controlTitle>
+                <controlType>Admin</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>adminUsers</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/ManageUsers.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Users</controlTitle>
+                <controlType>Admin</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>annotations</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/EditAnnotationText.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Custom Text</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>clog</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/ConfiscationLog.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Confiscation Log</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>cover</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/EditCoverSchedule.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Out of Office Notification</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>editAgency</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/EditAgency.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Edit Agency</controlTitle>
+                <controlType>Admin</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>editJudge</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/EditJudge.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Edit Judge</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>existUser</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/ExistingUser.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Add Existing User</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>judgeSign</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/JudgeList.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Judges</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>settings</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/WarrantSettings.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Warrant Settings</controlTitle>
+                <controlType>Edit</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>users</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/AgencyUsers.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Users</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>wadmin</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Warrants/ManageWarrants.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Manage Status</controlTitle>
+                <controlType>Admin</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\AWSModules\Warrants</basePath>
+        <file>
+          <path>App_LocalResources</path>
+          <name>AgencyUsers.ascx.resx</name>
+        </file>
+        <file>
+          <path>App_LocalResources</path>
+          <name>EditWarrants.ascx.resx</name>
+        </file>
+        <file>
+          <path>App_LocalResources</path>
+          <name>ViewModuleName.ascx.resx</name>
+        </file>
+        <file>
+          <path>App_LocalResources</path>
+          <name>WarrantSettings.ascx.resx</name>
+        </file>
+        <file>
+          <path>controls</path>
+          <name>NavigationControl.ascx</name>
+        </file>
+        <file>
+          <path>controls</path>
+          <name>Toolbar.ascx</name>
+        </file>
+        <file>
+          <path>controls</path>
+          <name>Toolbar.ascx.vb</name>
+        </file>
+        <file>
+          <path>controls</path>
+          <name>Toolbar.ascx.vb.bak</name>
+        </file>
+        <file>
+          <path>controls</path>
+          <name>ZoomingControl.ascx</name>
+        </file>
+        <file>
+          <path>css</path>
+          <name>ie.css</name>
+        </file>
+        <file>
+          <path>css</path>
+          <name>ie.min.css</name>
+        </file>
+        <file>
+          <path>css</path>
+          <name>JudeView.css</name>
+        </file>
+        <file>
+          <path>css</path>
+          <name>JudeView.min.css</name>
+        </file>
+        <file>
+          <path>Handlers</path>
+          <name>Image.ashx</name>
+        </file>
+        <file>
+          <path>Handlers</path>
+          <name>imageUpload.ashx</name>
+        </file>
+        <file>
+          <path>Handlers</path>
+          <name>PDFViewer.ashx</name>
+        </file>
+        <file>
+          <path>Handlers</path>
+          <name>returnService.ashx</name>
+        </file>
+        <file>
+          <path>Handlers</path>
+          <name>WarrantHandler.ashx</name>
+        </file>
+        <file>
+          <path>Handlers</path>
+          <name>WarrantUpload.ashx</name>
+        </file>
+        <file>
+          <path>Images</path>
+          <name>admin.png</name>
+        </file>
+        <file>
+          <path>Images</path>
+          <name>Check.png</name>
+        </file>
+        <file>
+          <path>Images</path>
+          <name>Judge.png</name>
+        </file>
+        <file>
+          <path>Images</path>
+          <name>PerSchedule.png</name>
+        </file>
+        <file>
+          <path>Images</path>
+          <name>sergeant.png</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>HTML5.js</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>HTMLAdvDocViewer.js</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>HTMLAdvDocViewer.js.exclude</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>HTMLAdvDocViewer.min.js</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>jquery-1.7.1.min.js</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>jquery.form.js</name>
+        </file>
+        <file>
+          <path>js</path>
+          <name>test.js</name>
+        </file>
+        <file>
+          <name>AddUser.ascx</name>
+        </file>
+        <file>
+          <name>AddUser.ascx.vb</name>
+        </file>
+        <file>
+          <name>AgencyUsers.ascx</name>
+        </file>
+        <file>
+          <name>AgencyUsers.ascx.vb</name>
+        </file>
+        <file>
+          <name>blank.tif</name>
+        </file>
+        <file>
+          <name>ConfiscationLog.ascx</name>
+        </file>
+        <file>
+          <name>ConfiscationLog.ascx.vb</name>
+        </file>
+        <file>
+          <name>EditAgency.ascx</name>
+        </file>
+        <file>
+          <name>EditAgency.ascx.vb</name>
+        </file>
+        <file>
+          <name>EditAnnotationText.ascx</name>
+        </file>
+        <file>
+          <name>EditAnnotationText.ascx.vb</name>
+        </file>
+        <file>
+          <name>EditCoverSchedule.ascx</name>
+        </file>
+        <file>
+          <name>EditCoverSchedule.ascx.vb</name>
+        </file>
+        <file>
+          <name>EditJudge.ascx</name>
+        </file>
+        <file>
+          <name>EditJudge.ascx.vb</name>
+        </file>
+        <file>
+          <name>EditWarrants.ascx</name>
+        </file>
+        <file>
+          <name>EditWarrants.ascx.vb</name>
+        </file>
+        <file>
+          <name>EventLog.ascx</name>
+        </file>
+        <file>
+          <name>EventLog.ascx.vb</name>
+        </file>
+        <file>
+          <name>ExistingUser.ascx</name>
+        </file>
+        <file>
+          <name>ExistingUser.ascx.vb</name>
+        </file>
+        <file>
+          <name>JudgeList.ascx</name>
+        </file>
+        <file>
+          <name>JudgeList.ascx.vb</name>
+        </file>
+        <file>
+          <name>JudgeView.aspx</name>
+        </file>
+        <file>
+          <name>JudgeView.aspx.vb</name>
+        </file>
+        <file>
+          <name>ManageAgencies.ascx</name>
+        </file>
+        <file>
+          <name>ManageAgencies.ascx.vb</name>
+        </file>
+        <file>
+          <name>ManageCounties.ascx</name>
+        </file>
+        <file>
+          <name>ManageCounties.ascx.vb</name>
+        </file>
+        <file>
+          <name>ManageUsers.ascx</name>
+        </file>
+        <file>
+          <name>ManageUsers.ascx.vb</name>
+        </file>
+        <file>
+          <name>ManageWarrants.ascx</name>
+        </file>
+        <file>
+          <name>ManageWarrants.ascx.vb</name>
+        </file>
+        <file>
+          <name>Module.css</name>
+        </file>
+        <file>
+          <name>module_icon.png</name>
+        </file>
+        <file>
+          <name>Warrants.ascx</name>
+        </file>
+        <file>
+          <name>Warrants.ascx.vb</name>
+        </file>
+        <file>
+          <name>WarrantSettings.ascx</name>
+        </file>
+        <file>
+          <name>WarrantSettings.ascx.vb</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>

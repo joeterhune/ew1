@@ -1,0 +1,53 @@
+﻿
+.cmdGroup,.cmdGroup li{
+    list-style:none;display:inline-block;margin:0px;padding:0px 10px;
+}
+.cmdGroup li{border-right:solid 1px #666}
+.cmdGroup a:hover{color:#b6ff00;}
+input[type="text"]:disabled{
+  color:#dddddd;
+}
+.dnnFormItem label {
+    font-weight:bold;
+}
+.dnnActions {
+    border-top:double #ccc;margin-top:10px; width:100%;
+}
+
+     @media screen and (min-width:1600px) { .dnnFormItem span.dnnFormMessage.dnnFormError {
+    right:22%;
+} }
+a.btn:visited, a.btn:active {
+    color: #fff !important
+}
+.bg-primary {
+    background-color: #333 !important;
+}
+
+ #notifications_wrapper{
+    margin-top: -35px
+}
+
+#notifications {
+    border: solid 1px #333;
+}
+.date, .ui-timepicker-wrapper, .time {
+    width: 100px !important;
+}
+
+div.dataTables_filter label, .dataTables_info {
+    font-weight: 700 !important;
+}
+.inline-error, .inline-error:after {
+    position: inherit !important;
+    right: auto !important;
+}
+    .inline-error:after {
+        border-color:transparent !important;
+    }
+    .labelnowidth label, .labelnowidth .dnnTooltip {
+        width: auto !important;
+    }
+.alert {
+    font-size: 14px !important
+}

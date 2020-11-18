@@ -1,0 +1,107 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="Notifications" type="Module" version="1.0.0">
+  <friendlyName>Notifications</friendlyName>
+  <description />
+  <iconFile>/Images/icon_extensions_32px.png</iconFile>
+  <owner>
+    <name />
+    <organization />
+    <url />
+    <email />
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes />
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>Notifications</moduleName>
+        <foldername>AWSModules/Notifications</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>Notifications</friendlyName>
+            <definitionName>Notifications</definitionName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/AWSModules/Notifications/ViewNotifications.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Edit</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Notifications/EditNotification.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Edit Notifications</controlTitle>
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Settings</controlKey>
+                <controlSrc>DesktopModules/AWSModules/Notifications/NotificationSettings.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>OOO Settings</controlTitle>
+                <controlType>Edit</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\AWSModules\Notifications</basePath>
+        <file>
+          <path>App_LocalResources</path>
+          <name>AgencyUsers.ascx.resx</name>
+        </file>
+        <file>
+          <path>App_LocalResources</path>
+          <name>EditNotification.ascx.resx</name>
+        </file>
+        <file>
+          <path>App_LocalResources</path>
+          <name>NotificationSettings.ascx.resx</name>
+        </file>
+        <file>
+          <path>App_LocalResources</path>
+          <name>ViewNotifications.ascx.resx</name>
+        </file>
+        <file>
+          <name>EditNotification.ascx</name>
+        </file>
+        <file>
+          <name>EditNotification.ascx.vb</name>
+        </file>
+        <file>
+          <name>Module.css</name>
+        </file>
+        <file>
+          <name>NotificationSettings.ascx</name>
+        </file>
+        <file>
+          <name>NotificationSettings.ascx.vb</name>
+        </file>
+        <file>
+          <name>ViewNotifications.ascx</name>
+        </file>
+        <file>
+          <name>ViewNotifications.ascx.vb</name>
+        </file>
+      </files>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>

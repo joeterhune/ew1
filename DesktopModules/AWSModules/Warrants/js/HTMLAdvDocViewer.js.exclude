@@ -1,0 +1,273 @@
+﻿Atalasoft.Utils.InitClientScript(myPageLoad);
+
+function getParameterByName(name, url) {
+    if (!url) {
+        url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var enc = getParameterByName('enc');
+var status = 1;
+
+function myPageLoad() {
+
+    WebThumbnailViewer1.UrlChanged = OnThumbnailUrlChanged;
+    WebThumbnailViewer1.ThumbnailDropServer = OnThumbnailsReordered;
+    WebThumbnailViewer1.ThumbnailClicked = OnThumbnailClicked;
+    WebThumbnailViewer1.ThumbnailDropServer = OnThumbnailDroppedServer;
+    WebAnnotationViewer1.SelectionChanged = OnAddAnnotationText;
+    var count = WebThumbnailViewer1.getCount();
+    GetAnnotations();
+    $('.listAnnotations').change(function () {
+        var selectedText = $(".listAnnotations option:selected");
+        if (selectedText.val() != "") {
+            doRemoteText(selectedText.text());
+        }
+        $('.listAnnotations').val('');
+    });
+}
+function OnAddAnnotationText() {
+    var annotations = WebAnnotationViewer1.getSelectedAnnotations();
+    var annotation = annotations[0];
+    if (annotation != null) {
+        var annType = annotation.getType();
+        if (annType = "TextAnnotation") {
+            annotation.ShowEditor();
+        }
+    }
+}
+function AppendStatus(msg) {
+    $('#status').append('<p>' + msg + '</p>');
+}
+
+function OnThumbnailUrlChanged() {
+
+    var count = WebThumbnailViewer1.getCount();
+    WebThumbnailViewer1.SelectThumb(0);
+}
+
+function OnThumbnailsReordered(e) {
+    WebThumbnailViewer1.SelectThumb(e.dropIndex);
+
+}
+
+function OnThumbnailClicked() {
+    var index = WebThumbnailViewer1.getSelectedIndex();
+}
+
+// event only fires after the server has responded to a drag drop event
+function OnThumbnailDroppedServer(e) {
+    DragDropLayers(e.dragIndex, e.dropIndex);
+}
+
+// Uses RemoteInvoke to drag one layer from one index to another
+function DragDropLayers(startIndex, destIndex) {
+    WebAnnotationViewer1.RemoteInvoked = DragDropLayersCallBack;
+    WebAnnotationViewer1.RemoteInvoke('Remote_DragDropLayers', [startIndex, destIndex]);
+}
+
+function DragDropLayersCallBack() {
+    WebAnnotationViewer1.RemoteInvoked = function () { };
+    WebThumbnailViewer1.SelectThumb(parseInt(WebAnnotationViewer1.getReturnValue()));
+}
+function CreateAnnotation(type, name) {
+    WebAnnotationViewer1.CreateAnnotation(type, name);
+}
+function Delete() {
+    var anns = WebAnnotationViewer1.getSelectedAnnotations();
+    WebAnnotationViewer1.DeleteAnnotations(anns);
+}
+function SetText() {
+    var text = document.getElementById("txtStampText").value
+    WebAnnotationViewer1.RemoteInvoke('InsertTextAnnotation', new Array(text));
+}
+function ApproveWarrant() {
+    disableButtons();
+    WebAnnotationViewer1.RemoteInvoked = remoteDoneHandler;
+    WebAnnotationViewer1.RemoteInvoke('ApproveWarrant', new Array(enc));
+}
+function RejectWarrant() {
+    disableButtons();
+    document.getElementById('txtReason');
+    var reason = document.getElementById('txtReason').value;
+
+    WebAnnotationViewer1.RemoteInvoked = remoteDoneHandler;
+    WebAnnotationViewer1.RemoteInvoke('RejectWarrant', new Array(enc, reason));
+}
+function CancelWarrant() {
+    disableButtons();
+    WebAnnotationViewer1.RemoteInvoked = remoteDoneHandler;
+    WebAnnotationViewer1.RemoteInvoke('CancelWarrant', new Array(enc));
+}
+function remoteDoneHandler() {
+    WebAnnotationViewer1.RemoteInvoked = function () { };
+    var returnString = WebAnnotationViewer1.getReturnValue();
+    var replyArray = returnString.split('|'); // tokenize on |
+    // parse return string
+    if (replyArray[0] == -1) {
+        ShowDialogBox('Error', 'Error\Mmessage: ' + replyArray[1] + '\nStackTrace: ' + replyArray[2], 'Ok', '', '', true);
+        // alert("ERROR\nmessage: " + replyArray[1] + "\nStackTrace: " + replyArray[2]);
+    } else if (replyArray[0] == 0) {
+        ShowDialogBox('Warning', replyArray[1], 'Ok', '', '', true);
+        //alert("Please Note: " + replyArray[1]);
+    } else {
+        location.replace(document.referrer);
+    }
+}
+
+function disableButtons() {
+    $('[id*=cmd]').prop('disabled', true);
+    setTimeout(function () {
+        $('[id*=cmd]').prop('disabled', false);
+    }, 5 * 1000);
+}
+$('div#dialog').on('dialogclose', function (event) {
+    // location.replace(document.referrer);
+});
+//    Usage:
+//    ShowDialogBox('Warning', 'Record updated successfully.', 'Ok', '', 'GoToAssetList', null);
+function ShowDialogBox(title, content, btn1text, btn2text, functionText, redirect) {
+    var btn1css;
+    var btn2css;
+
+    if (btn1text == '') {
+        btn1css = "hidecss";
+    } else {
+        btn1css = "showcss";
+    }
+    $("#lblMessage").html(content);
+
+    $("#dialog").dialog({
+        resizable: false,
+        title: title,
+        modal: true,
+        width: '400px',
+        height: 'auto',
+        bgiframe: false,
+        hide: { effect: 'scale', duration: 400 },
+
+        buttons: [
+                        {
+                            text: btn1text,
+                            "class": btn1css,
+                            click: function () {
+
+                                $("#dialog").dialog('close');
+                                if (redirect) {
+                                    location.replace(document.referrer);
+                                }
+                            }
+                        }
+        ]
+    });
+}
+
+function GetTextFromAnnotation() {
+    var iframe = $("[id^='WebAnnotationViewer']");
+    var foundText = false;
+    $("[class^='textdata']", iframe.contents()).each(function (t) {
+        if ($(this).prev().css('display') != 'none') {
+            foundText = true;
+            AddTextString($(this).val());
+        }
+
+    });
+    if (!foundText) {
+        ShowDialogBox("No Text Box Selected", "Please select a textbox and try again.", "Ok", "", "", false);
+    }
+}
+function UpdateTextAnnotation(textValue) {
+    var iframe = $("[id^='WebAnnotationViewer']");
+    var foundText = false;
+    $("[class^='textdata']", iframe.contents()).each(function (t) {
+        if ($(this).prev().css('display') != 'none') {
+            foundText = true;
+            //Cause double click
+            $(this).val(textValue);
+
+        }
+    });
+    if (!foundText) {
+        ShowDialogBox("No Text Box Selected", "Please select a textbox and try again.", "Ok", "", "", false);
+    }
+
+}
+function AddTextString(text) {
+    var Url = "/DesktopModules/AWSModules/Warrants/api/HttpData/AddAnnotation/";
+
+    $.ajax({
+        type: "POST",
+        cache: "false",
+        url: Url,
+        data: ({ AnnotationText: text }),
+        success: function () {
+            GetAnnotations();
+        },
+        error: function () {
+            ShowDialogBox("Warning", "Error Adding Annotation.", "Ok", "", "", false);
+        }
+    });
+    return false;
+
+}
+
+function GetAnnotations() {
+    var Url = "/DesktopModules/AWSModules/Warrants/api/HttpData/GetAnnotations/";
+    var annotationList = $('.listAnnotations');
+    var choices = '';
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: Url,
+        success: function (j) {
+            if (j.length == 0) {
+                choices += '<option value="">No Saved Text Available</option>';
+                annotationList.html(choices);
+            } else {
+                choices += '<option value="">< Select Text Replacement ></option>';
+                for (var i = 0; i < j.length; i++) {
+                    c = j[i];
+                    choices += '<option value="' + c.Value + '">' + c.Text + '</option>';
+                }
+                annotationList.html(choices);
+            }
+        },
+        error: function () {
+            ShowDialogBox("Warning", "Error Retrieving Annotations.", "Ok", "", "", false);
+        }
+    });
+}
+
+function ChangeAnnoText(newText) {
+    var args = new Array();
+    args.push(newText);
+    //alert("about to change fill");
+    WebAnnotationViewer1.RemoteInvoked = RepaintAnnotations;
+    // Now, we call the RemoteInvoke on the Annotation viewer
+    WebAnnotationViewer1.RemoteInvoke('RemoteChangeAnnoText', args);
+}
+function RepaintAnnotations() {
+    var annos = WebAnnotationViewer1.getAnnotations();
+    for (var i = 0; i < annos.length; i++) {
+        annos[i].Repaint();
+        WebThumbnailViewer1.UpdateThumb(i);
+    }
+}
+function doRemoteText(annoText) {
+    var args = new Array();
+    args.push(annoText);
+    args.push(10); // this will be the X location of the anno
+    args.push(10); // this wil lbe the Y location of the anno
+    args.push(600); // this will be the width of the anno
+    args.push(150); // this will be the height of the anno
+    WebAnnotationViewer1.RemoteInvoked = RepaintAnnotations;
+    // Now, we call the RemoteInvoke on the Annotation viewer
+    WebAnnotationViewer1.RemoteInvoke('RemoteCreateText', args);
+}

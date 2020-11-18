@@ -1,0 +1,97 @@
+04/13/2020 21:12:59 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Checking IIS configuration
+04/13/2020 21:12:59 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Applying Upgrade Script 09.04.00
+04/13/2020 21:12:59 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpgradeVersion:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.00.SqlDataProvider
+04/13/2020 21:12:59 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start ExecuteScript:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.00.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade End ExecuteScript:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.00.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpgradeVersion:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.00.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Applying Upgrade Script 09.04.01
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpgradeVersion:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.01.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start ExecuteScript:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.01.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade End ExecuteScript:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.01.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpgradeVersion:C:\Sites\e14\Providers\DataProviders\SqlDataProvider\09.04.01.SqlDataProvider
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Upgrading Application to 9.4.0
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start Application Upgrades: 9.4.0
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Upgrading Application to 9.4.1
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start Application Upgrades: 9.4.1
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Updating Config for 9.4.0
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpdateConfig:09.04.00
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpdateConfig:9.4.0
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateAttribute:attributeName=targetFramework
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateAttribute:attributeName=targetFramework
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade End UpdateConfig:9.4.0
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade End UpdateConfig:09.04.00
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Updating Config for 9.4.1
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpdateConfig:09.04.01
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start UpdateConfig:9.4.1
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade End UpdateConfig:9.4.1
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade End UpdateConfig:09.04.01
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Deleting Older Files for 9.4.0
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start DeleteFiles:09.04.00
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Deleting Older Files for 9.4.1
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start DeleteFiles:09.04.01
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Upgrading Application
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DDRMenu_09.04.01_Install.zip
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DDRMenu_09.04.01_Install.zip
+04/13/2020 21:13:00 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:01 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Library - Dnn.EditBar.UI_09.04.01_Install.zip
+04/13/2020 21:13:01 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\Dnn.EditBar.UI_09.04.01_Install.zip
+04/13/2020 21:13:01 [INFO] DotNetNuke.Services.Installer.XmlMerge Start RemoveNode:
+04/13/2020 21:13:01 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:02 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Library - Dnn.PersonaBar.UI_09.04.01_Install.zip
+04/13/2020 21:13:02 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\Dnn.PersonaBar.UI_09.04.01_Install.zip
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start RemoveNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start AddNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start RemoveNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start AddNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start RemoveNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start AddNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start RemoveNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start AddNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start RemoveNode:
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Library - DNNCE_01_Web.Deprecated_09.04.01_Install.zip
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_01_Web.Deprecated_09.04.01_Install.zip
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Connector - DNNCE_AzureConnector_09.04.01_Install.zip
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_AzureConnector_09.04.01_Install.zip
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_Console_09.04.01_Install.zip
+04/13/2020 21:13:04 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_Console_09.04.01_Install.zip
+04/13/2020 21:13:05 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_CoreMessaging_09.04.01_Install.zip
+04/13/2020 21:13:05 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_CoreMessaging_09.04.01_Install.zip
+04/13/2020 21:13:05 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_DigitalAssetsManagement_09.04.01_Install.zip
+04/13/2020 21:13:05 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_DigitalAssetsManagement_09.04.01_Install.zip
+04/13/2020 21:13:06 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_HTML_09.04.01_Install.zip
+04/13/2020 21:13:06 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_HTML_09.04.01_Install.zip
+04/13/2020 21:13:07 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_HtmlEditorManager_09.04.01_Install.zip
+04/13/2020 21:13:07 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_HtmlEditorManager_09.04.01_Install.zip
+04/13/2020 21:13:07 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_Journal_09.04.01_Install.zip
+04/13/2020 21:13:07 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_Journal_09.04.01_Install.zip
+04/13/2020 21:13:08 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_MemberDirectory_09.04.01_Install.zip
+04/13/2020 21:13:08 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_MemberDirectory_09.04.01_Install.zip
+04/13/2020 21:13:08 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_ModuleCreator_09.04.01_Install.zip
+04/13/2020 21:13:08 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_ModuleCreator_09.04.01_Install.zip
+04/13/2020 21:13:09 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_RazorHost_09.04.01_Install.zip
+04/13/2020 21:13:09 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_RazorHost_09.04.01_Install.zip
+04/13/2020 21:13:10 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Library - DNNCE_SiteExportImport_09.04.01_Install.zip
+04/13/2020 21:13:10 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_SiteExportImport_09.04.01_Install.zip
+04/13/2020 21:13:10 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Module - DNNCE_SocialGroups_09.04.01_Install.zip
+04/13/2020 21:13:10 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_SocialGroups_09.04.01_Install.zip
+04/13/2020 21:13:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Library - DNNCE_Website.Deprecated_09.04.01_Install.zip
+04/13/2020 21:13:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\DNNCE_Website.Deprecated_09.04.01_Install.zip
+04/13/2020 21:13:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Connector - GoogleAnalyticsConnector_09.04.01_Install.zip
+04/13/2020 21:13:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\GoogleAnalyticsConnector_09.04.01_Install.zip
+04/13/2020 21:13:11 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Skin - Skin_Xcillion_02.00.00_Install.zip
+04/13/2020 21:13:11 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Skin\Skin_Xcillion_02.00.00_Install.zip
+04/13/2020 21:13:12 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing JavaScript_Library - Selectize.zip
+04/13/2020 21:13:12 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\JavaScriptLibrary\Selectize.zip
+04/13/2020 21:13:12 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Provider - AspNetClientCapabilityProvider_09.04.01_Install.zip
+04/13/2020 21:13:12 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Provider\AspNetClientCapabilityProvider_09.04.01_Install.zip
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Provider - DNNCE_FolderProviders_09.04.01_Install.zip
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Provider\DNNCE_FolderProviders_09.04.01_Install.zip
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing Provider - DNNConnect.CKEditorProvider_01.00.07_Install.zip
+04/13/2020 21:13:13 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Provider\DNNConnect.CKEditorProvider_01.00.07_Install.zip
+04/13/2020 21:13:26 [INFO] DotNetNuke.Services.Installer.XmlMerge Start UpdateNode: keyAttribute=name
+04/13/2020 21:13:28 [INFO] DotNetNuke.Services.Upgrade.Internals.Steps.BaseInstallationStep Installing PersonaBar - Dnn.PersonaBar.Extensions_09.04.01_Install.zip
+04/13/2020 21:13:28 [INFO] DotNetNuke.Services.Upgrade.Upgrade Start InstallPackage:C:\Sites\e14\Install\Module\Dnn.PersonaBar.Extensions_09.04.01_Install.zip

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>Warrants Settings</value>
+  </data>
+  <data name="lblAdminJudge.Help" xml:space="preserve">
+    <value>The Master Judge account can approve other judges for warrant signing.</value>
+  </data>
+  <data name="lblAdminJudge.Text" xml:space="preserve">
+    <value>Master Judge Role</value>
+  </data>
+  <data name="lblAgencySupervisor.Help" xml:space="preserve">
+    <value>Select the role from the list that will be used for Agency Supervisors which can see warrants for the entire agency and any sub agencies</value>
+  </data>
+  <data name="lblAgencySupervisor.Text" xml:space="preserve">
+    <value>Agency Supervisor Role</value>
+  </data>
+  <data name="lblClaimedThreshold.Help" xml:space="preserve">
+    <value>Enter the number of days to wait before sending notification of unclaimed warrants.  Enter zero to avoid sending notifications.</value>
+  </data>
+  <data name="lblClaimedThreshold.Text" xml:space="preserve">
+    <value>Unclaimed Notification Threshold (in days)</value>
+  </data>
+  <data name="lblCompletedThreshold.Help" xml:space="preserve">
+    <value>Enter the number of hours to retain completed warrants. Enter Zero to retain completed warrants.</value>
+  </data>
+  <data name="lblCompletedThreshold.Text" xml:space="preserve">
+    <value>Completed Warrant Threshold (in hours)</value>
+  </data>
+  <data name="lblContactListUrl.Help" xml:space="preserve">
+    <value>Select the Page used for Judge Contact Information</value>
+  </data>
+  <data name="lblContactListUrl.Text" xml:space="preserve">
+    <value>Contact List Page</value>
+  </data>
+  <data name="lblDeleteThreshold.Help" xml:space="preserve">
+    <value>Enter the number of days to retain signed warrants before deletion.  Enter zero to retain signed warrants.</value>
+  </data>
+  <data name="lblDeleteThreshold.Text" xml:space="preserve">
+    <value>Delete Threshold (in days)</value>
+  </data>
+  <data name="lblDemoMode.Help" xml:space="preserve">
+    <value>Checking this option will set the module to Demo Mode</value>
+  </data>
+  <data name="lblDemoMode.Text" xml:space="preserve">
+    <value>Set Module to Demo Mode</value>
+  </data>
+  <data name="lblEndofBusiness.Help" xml:space="preserve">
+    <value>Select a time in which Notifications will stop being sent to judges</value>
+  </data>
+  <data name="lblEndofBusiness.Text" xml:space="preserve">
+    <value>End of Business</value>
+  </data>
+  <data name="lblJaRole.Help" xml:space="preserve">
+    <value>Select the role from the list that will be used for the Judge's Assistants</value>
+  </data>
+  <data name="lblJaRole.Text" xml:space="preserve">
+    <value>Judge's Assistant Role</value>
+  </data>
+  <data name="lblJudgeRole.Help" xml:space="preserve">
+    <value>Select the role from the list that will be used for the Judges</value>
+  </data>
+  <data name="lblJudgeRole.Text" xml:space="preserve">
+    <value>Judge Role</value>
+  </data>
+  <data name="lblNotificationEmail.Help" xml:space="preserve">
+    <value>Enter the email address that will receive scheduled notifications</value>
+  </data>
+  <data name="lblNotificationEmail.Text" xml:space="preserve">
+    <value>Notification Email Address</value>
+  </data>
+  <data name="lblNotificationSendTime.Help" xml:space="preserve">
+    <value>Enter the time that notifications will be sent which have been held over from the previous night.</value>
+  </data>
+  <data name="lblNotificationSendTime.Text" xml:space="preserve">
+    <value>Notification Recovery Time</value>
+  </data>
+  <data name="lblSenderEmail.Help" xml:space="preserve">
+    <value>Enter an email address to use as the from address when sending Notifications.</value>
+  </data>
+  <data name="lblSenderEmail.Text" xml:space="preserve">
+    <value>Sender Email Address</value>
+  </data>
+  <data name="lblSignedThreshold.Help" xml:space="preserve">
+    <value>Enter the number of days to wait before sending notification of unreviewed warrants.  Enter zero to avoid sending notifications.</value>
+  </data>
+  <data name="lblSignedThreshold.Text" xml:space="preserve">
+    <value>Unreviewed Notification Threshold (in days)</value>
+  </data>
+  <data name="lblSignedWarrantRole.Help" xml:space="preserve">
+    <value>Select the role that Clerk's and Sheriff's offices will use to view all signed warrants</value>
+  </data>
+  <data name="lblSignedWarrantRole.Text" xml:space="preserve">
+    <value>Show Signed Warrants Role</value>
+  </data>
+</root>

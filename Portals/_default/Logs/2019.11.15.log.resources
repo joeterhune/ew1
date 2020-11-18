@@ -1,0 +1,6 @@
+2019-11-15 12:38:22.245-05:00 [CAM-B7NRRD2][D:2][T:9][ERROR] DotNetNuke.Services.Exceptions.Exceptions - FriendlyMessage="Error:  is currently unavailable." ctrl="ASP.desktopmodules_awsmodules_injunctions_editagency_ascx" exc="System.ArgumentException: Parameter count does not match Parameter Value count.
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.AssignParameterValues(SqlParameter[] commandParameters, Object[] parameterValues)
+   at Microsoft.ApplicationBlocks.Data.SqlHelper.ExecuteScalar(String connectionString, String spName, Object[] parameterValues)
+   at AWS.Modules.Injunctions.SqlDataProvider.AddAgency(Int32 ModuleId, String agencyName, String emailAddress, String parentAgency, Boolean isClerk) in C:\Sites\e14\App_Code\Injunctions\SqlDataProvider.vb:line 254
+   at AWS.Modules.Injunctions.Controller.AddAgency(AgencyInfo objAgencies) in C:\Sites\e14\App_Code\Injunctions\Controller.vb:line 171
+   at AWS.Modules.Injunctions.EditAgency.btnSave_Click(Object sender, EventArgs e) in C:\Sites\e14\DesktopModules\AWSModules\Injunctions\EditAgency.ascx.vb:line 123"

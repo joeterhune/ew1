@@ -1,0 +1,19 @@
+﻿body { background-color:#ccc;
+}
+
+sub,section li {
+display:inline !important;}
+    .main li {float:left;
+    }
+#sv,#cn,#rs {
+    display:inline-block !important;float:left;
+}
+#sv {
+width:15%;
+}
+#cn {
+width:30%;text-align:right; 
+}
+#rs { 
+width:55%;vertical-align:middle;
+}

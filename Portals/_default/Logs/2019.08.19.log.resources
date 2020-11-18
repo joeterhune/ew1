@@ -1,0 +1,65 @@
+2019-08-19 07:47:50.106-04:00 [CAM-B7NRRD2][D:2][T:6][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.IOException: The process cannot access the file 'C:\sites\WarrantArchive\2019\2.pdf' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, PdfSaveOptions options, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.<>c__DisplayClass39_0.<Combine>b__0(FileStream stm)
+   at Atalasoft.PdfDoc.Utils.DoActionWithRemoveOnError(FileStream fs, Action`1 action)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(String outputFile, String[] sourceFiles)
+   at AWS.Modules.Warrants.ConfiscationLog.MergePdfs(String FirstFilePath, String SecondFilePath, String OutputPath) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\ConfiscationLog.ascx.vb:line 145
+2019-08-19 07:48:01.555-04:00 [CAM-B7NRRD2][D:2][T:13][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Exception: File not Found in Archive
+   at AWS.Modules.Warrants.PDFViewer.ProcessRequest(HttpContext context) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\Handlers\PDFViewer.ashx:line 85
+2019-08-19 07:48:20.102-04:00 [CAM-B7NRRD2][D:2][T:14][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Exception: File not Found in Archive
+   at AWS.Modules.Warrants.PDFViewer.ProcessRequest(HttpContext context) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\Handlers\PDFViewer.ashx:line 85
+2019-08-19 07:52:50.528-04:00 [CAM-B7NRRD2][D:2][T:16][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Exception: File not Found in Archive
+   at AWS.Modules.Warrants.PDFViewer.ProcessRequest(HttpContext context) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\Handlers\PDFViewer.ashx:line 85
+2019-08-19 07:59:53.707-04:00 [CAM-B7NRRD2][D:2][T:52][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.IOException: The process cannot access the file 'C:\sites\WarrantArchive\2019\4.pdf' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, PdfSaveOptions options, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.<>c__DisplayClass39_0.<Combine>b__0(FileStream stm)
+   at Atalasoft.PdfDoc.Utils.DoActionWithRemoveOnError(FileStream fs, Action`1 action)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(String outputFile, String[] sourceFiles)
+   at AWS.Modules.Warrants.ConfiscationLog.MergePdfs(String FirstFilePath, String SecondFilePath, String OutputPath) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\ConfiscationLog.ascx.vb:line 151
+2019-08-19 08:00:21.004-04:00 [CAM-B7NRRD2][D:2][T:6][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.IOException: The process cannot access the file 'C:\sites\WarrantArchive\2019\3.pdf' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, PdfSaveOptions options, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.<>c__DisplayClass39_0.<Combine>b__0(FileStream stm)
+   at Atalasoft.PdfDoc.Utils.DoActionWithRemoveOnError(FileStream fs, Action`1 action)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(String outputFile, String[] sourceFiles)
+   at AWS.Modules.Warrants.ConfiscationLog.MergePdfs(String FirstFilePath, String SecondFilePath, String OutputPath) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\ConfiscationLog.ascx.vb:line 151
+2019-08-19 08:01:07.799-04:00 [CAM-B7NRRD2][D:2][T:42][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Exception: File not Found in Archive
+   at AWS.Modules.Warrants.PDFViewer.ProcessRequest(HttpContext context) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\Handlers\PDFViewer.ashx:line 85
+2019-08-19 08:01:11.202-04:00 [CAM-B7NRRD2][D:2][T:6][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.Exception: File not Found in Archive
+   at AWS.Modules.Warrants.PDFViewer.ProcessRequest(HttpContext context) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\Handlers\PDFViewer.ashx:line 85
+2019-08-19 08:02:35.991-04:00 [CAM-B7NRRD2][D:2][T:43][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.IOException: The process cannot access the file 'C:\sites\WarrantArchive\2019\3.pdf' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, PdfSaveOptions options, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.<>c__DisplayClass39_0.<Combine>b__0(FileStream stm)
+   at Atalasoft.PdfDoc.Utils.DoActionWithRemoveOnError(FileStream fs, Action`1 action)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(String outputFile, String[] sourceFiles)
+   at AWS.Modules.Warrants.ConfiscationLog.MergePdfs(String FirstFilePath, String SecondFilePath, String OutputPath) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\ConfiscationLog.ascx.vb:line 151
+2019-08-19 08:08:12.524-04:00 [CAM-B7NRRD2][D:2][T:48][ERROR] DotNetNuke.Services.Exceptions.Exceptions - System.IO.IOException: The process cannot access the file 'C:\sites\WarrantArchive\2019\4.pdf' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, PdfSaveOptions options, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(Stream output, String[] sourceFiles)
+   at Atalasoft.PdfDoc.PdfDocument.<>c__DisplayClass39_0.<Combine>b__0(FileStream stm)
+   at Atalasoft.PdfDoc.Utils.DoActionWithRemoveOnError(FileStream fs, Action`1 action)
+   at Atalasoft.PdfDoc.PdfDocument.Combine(String outputFile, String[] sourceFiles)
+   at AWS.Modules.Warrants.ConfiscationLog.MergePdfs(String FirstFilePath, String SecondFilePath, String OutputPath) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\ConfiscationLog.ascx.vb:line 151
+2019-08-19 08:15:24.359-04:00 [CAM-B7NRRD2][D:2][T:43][ERROR] DotNetNuke.Services.Exceptions.Exceptions - FriendlyMessage="Error:  is currently unavailable." ctrl="ASP.desktopmodules_awsmodules_warrants_confiscationlog_ascx" exc="System.IO.IOException: The file 'C:\sites\WarrantArchive\2019\4.pdf' already exists.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at System.IO.FileInfo.CopyTo(String destFileName)
+   at AWS.Modules.Warrants.ConfiscationLog.AttachConfiscationLog(WarrantsInfo objWarrant) in C:\Sites\e14\DesktopModules\AWSModules\Warrants\ConfiscationLog.ascx.vb:line 129"

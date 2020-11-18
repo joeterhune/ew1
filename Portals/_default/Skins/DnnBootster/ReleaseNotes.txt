@@ -1,0 +1,72 @@
+﻿<h3>DnnBootster Theme for Dnn</h3>
+	DnnConsulting.nl <br/>
+	Geoff Barlow<br />
+	<a href="mailto:info@dnnconsulting.nl">info@DnnConsulting.nl</a><br />
+	<a href=http://www.dnnconsulting.nl>http://www.dnnconsulting.nl</a><br />
+<hr/>
+	<h3>About the DnnBootster Theme</h3>
+
+	<h4>Version 01.00.05</h4><br />
+	<h5>Add functionality and fixes</h5>
+	<ul>
+		<li>Updated Fontawesome to version 4.7.0</li>
+	</ul>
+
+	<h4>Version 01.00.04</h4><br />
+	<h5>Add functionality and fixes</h5>
+	<ul>
+		<li>Updated Bootstrap to version 3.3.7</li>
+		<li>Updated Fontawesome to version 4.5.0</li>
+		<li>Fixed the header include in the admin skin</li>
+		<li>Added minified css and amended the links in the skins</li>
+		<li>Merged optimized images (Ernst Peter Tamminga, pull request)</li>
+		<li>Add extra css for admin (Peter Scotman, pull request)</li>
+		<li>Add extra theme Orange (David Poindexter, pull request)</li>
+		<li>Removed the css that resizes the controlbar, causes problems</li>
+		<li>Variuos other small changes</li>
+	</ul>
+
+	<h4>Version 01.00.03</h4><br />
+	Small change
+	<h5>Added</h5>
+	<ul>
+			<li>Improved the functionality of the standard Bootstrap slider, added swipe functionality</li>
+	</ul>
+
+	<h4>Version 01.00.02</h4><br />
+	Small changes
+	<h5>Added</h5>
+	<ul>
+			<li>Dedicated admin skin added</li>
+			<li>404 skin added</li>
+	</ul>
+	<h5>Bug Fixes/changes</h5>
+	<ul>
+			<li>
+				Changed the ContentPane container from "container-fluid" to "container", this is done 
+				because there is a dedicated admin skin for editing which uses the "container-fluid" class.
+			</li>
+	</ul>
+
+	<h4>Version 01.00.01</h4><br />
+	Small changes
+	<h5>Added</h5>
+	<ul>
+			<li>A popup skin so that the Dnn modals are displayed properly on mobile devices.</li>
+	</ul>
+	<h5>Bug Fixes</h5>
+	<ul>
+			<li>
+				Fix for the bootstrap Carousel in IE11, when the slider swaps images the screen size, the images 
+				first display full height, then changes to the proper responsive size, this causes an unpleasent jumping 
+				on the screen, this has now been sorted.
+			</li>
+	</ul>
+
+	<h4>Version 01.00.00</h4><br />
+	Initial release of the skin using Bootstrap v3.3.6 and DNN 8
+	<h5>Bug Fixes</h5>
+	<ul>
+			<li>None, first release</li>
+	</ul>
+</div>
