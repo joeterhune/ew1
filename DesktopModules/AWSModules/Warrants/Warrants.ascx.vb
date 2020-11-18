@@ -346,7 +346,7 @@ Namespace AWS.Modules.Warrants
                     Dim objSettings As WarrantConfigSettings = ctl.GetModuleSettings(ModuleId)
                     If Not objSettings Is Nothing Then
                         CompletedWarrantsThreshold = objSettings.Hours
-                        If CompletedWarrantsThreshold > 0 Then
+                        If CompletedWarrantsThreshold > 0 And Not objAgencyUser Is Nothing Then
                             ltMessage.Text = String.Format(ltMessage.Text, objSettings.Hours.ToString)
                         Else
                             ltMessage.Visible = False
@@ -466,13 +466,13 @@ Namespace AWS.Modules.Warrants
             If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
                 Dim item As RepeaterItem = e.Item
                 Dim lnkSign As LinkButton = CType(item.FindControl("lnkSign"), LinkButton)
-              '  Dim lnkAttach As HyperLink = CType(item.FindControl("lnkAttach"), HyperLink)
+                '  Dim lnkAttach As HyperLink = CType(item.FindControl("lnkAttach"), HyperLink)
                 Dim cmdRelease As LinkButton = CType(item.FindControl("cmdRelease"), LinkButton)
                 Dim cmdDelete As LinkButton = CType(item.FindControl("cmdDelete"), LinkButton)
                 Dim rptAttachments As Repeater = CType(item.FindControl("rptAttachments"), Repeater)
                 Dim objWarrant As WarrantsInfo = e.Item.DataItem
                 cmdRelease.Visible = False
-               ' lnkAttach.Visible = False
+                ' lnkAttach.Visible = False
                 Dim _isJudge = IsJudge
 
                 If objWarrant.StatusId = WarrantStatus.NewWarrant And Not IsJudge And objWarrant.CreatedByUserId = UserId Then
@@ -483,7 +483,8 @@ Namespace AWS.Modules.Warrants
                 If objWarrant.StatusId = WarrantStatus.Reviewed And Not IsJudge And CompletedWarrantsThreshold > 0 Then
                     Dim tr As System.Web.UI.HtmlControls.HtmlTableRow = CType(e.Item.FindControl("tablerow"), System.Web.UI.HtmlControls.HtmlTableRow)
                     tr.Attributes.Add("style", "background-color:#ffeeba;")
-                    lblDeleteNotice.Text = String.Format("<div class='dnnFormMessage dnnFormError dnnFormInfo' style='margin:20px 0;'>The warrants highlighted below have been completed and will be automatically deleted {0} hours after viewing.</div>", CompletedWarrantsThreshold.ToString)
+                    lblDeleteNotice.Text = String.Format(lblDeleteNotice.Text, CompletedWarrantsThreshold.ToString)
+                    lblDeleteNotice.Visible = True
                 End If
                 Dim warrantId As Integer = CType(e.Item.DataItem, WarrantsInfo).WarrantId
                 Dim judgeId As Integer = objWarrant.JudgeUserId
@@ -501,7 +502,7 @@ Namespace AWS.Modules.Warrants
                 If _isJudge Then
                     If statusId <> WarrantStatus.NewWarrant Then
                         lnkSign.Visible = False
-                       ' lnkAttach.Visible = False
+                        ' lnkAttach.Visible = False
                         If judgeId = UserId And statusId = WarrantStatus.UnderReview Then
                             lnkSign.Visible = True
                             cmdRelease.Visible = True

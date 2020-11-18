@@ -272,7 +272,14 @@ Namespace AWS.Modules.Warrants
                     Case WarrantStatus.UnderReview
                         Return "Under Review By " & GetJudgeName(_reviewedByJudgeUserId)
                     Case WarrantStatus.Reviewed
-                        Return "Completed"
+                      '  Return "Completed"
+                       Dim hoursPast As Integer = DateDiff(DateInterval.Hour, _reviewedByAgencyDate, DateTime.Now)
+                        If hoursPast > 24 Then
+                            Return "Completed - this warrant is scheduled to be deleted"
+                        Else
+                            Return "Completed - Will be automatically deleted in " & 24 - DateDiff(DateInterval.Hour, _reviewedByAgencyDate, DateTime.Now).ToString & " hours!"
+
+                        End If
                     Case WarrantStatus.ReturnService
                         Return "Return of Service"
 

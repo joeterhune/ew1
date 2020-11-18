@@ -9,7 +9,7 @@
     <asp:UpdatePanel ID="dptUpdate" runat="server" RenderMode="Block" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
             <asp:Literal ID="lblDeleteNotice" runat="server" Visible="false">
-        <p class="alert alert-danger"><em class="fa fa-warning"></em> The warrants highlighted below have been completed and will be automatically deleted 24 hours after viewing.</p>
+        <p class="alert alert-danger"><em class="fa fa-warning"></em> The warrants highlighted below have been completed and will be automatically deleted {0} hours after viewing.</p>
             </asp:Literal>
             <div class="btn-toolbar " role="toolbar" aria-label="Toolbar Group" style="display: block; margin-bottom: 8px">
 
@@ -124,7 +124,7 @@
         </Triggers>
     </asp:UpdatePanel>
 
-    <asp:Literal ID="ltMessage" runat="server"></asp:Literal>
+    <asp:Literal ID="ltMessage" runat="server">
     <p class="alert alert-info" style="margin-top: 20px"><em class="fa fa-info-circle"></em> <strong>Please Note:</strong> Warrants will be automatically deleted {0} hours after you or another agency member view a signed or rejected warrant.</p></asp:Literal>
 
 
@@ -146,7 +146,8 @@
             $('[data-toggle="tooltip"]').tooltip()
             $(".warrantLink").on("click", function (e) {
                 var docLink = $(this);
-                if (docLink.data("stat") == "s") {
+                var status = docLink.data("stat");
+                if (status == "s") {
                     e.preventDefault();
                     window.open(docLink.attr("href"));
                     setTimeout(refreshGrid(), 1000);
@@ -182,5 +183,8 @@
         });
         $('#warrants_wrapper label').css("font-weight:700");
 
+    }
+    function refreshGrid() {
+        window.location.replace("/");
     }
 </script>
