@@ -267,7 +267,7 @@ Namespace AWS.Modules.Warrants
                         Return "New"
                     Case WarrantStatus.Rejected
                         Return "Rejected by " & GetJudgeName(_reviewedByJudgeUserId)
-                    Case WarrantStatus.Singed
+                    Case WarrantStatus.Signed
                         Return "Signed by " & GetJudgeName(_reviewedByJudgeUserId)
                     Case WarrantStatus.UnderReview
                         Return "Under Review By " & GetJudgeName(_reviewedByJudgeUserId)
@@ -278,7 +278,6 @@ Namespace AWS.Modules.Warrants
                             Return "Completed - this warrant is scheduled to be deleted"
                         Else
                             Return "Completed - Will be automatically deleted in " & 24 - DateDiff(DateInterval.Hour, _reviewedByAgencyDate, DateTime.Now).ToString & " hours!"
-
                         End If
                     Case WarrantStatus.ReturnService
                         Return "Return of Service"
@@ -296,7 +295,7 @@ Namespace AWS.Modules.Warrants
                         Return "N"
                     Case WarrantStatus.Rejected
                         Return "R"
-                    Case WarrantStatus.Singed
+                    Case WarrantStatus.Signed
                         Return "S"
                     Case WarrantStatus.UnderReview
                         Return "U"
@@ -645,7 +644,7 @@ Namespace AWS.Modules.Warrants
     Public Enum WarrantStatus
         NewWarrant = 1
         UnderReview = 2
-        Singed = 3
+        Signed = 3
         Rejected = 4
         Reviewed = 5
         ReturnService = 6

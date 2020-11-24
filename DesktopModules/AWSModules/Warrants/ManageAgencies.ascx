@@ -13,7 +13,7 @@
 
         <asp:Repeater runat="server" ID="rptAgencies">
             <HeaderTemplate>
-                <table id="agencies" summary="List of Agencies" class="table table-striped">
+                <table id="agenc" summary="List of Agencies" class="table table-striped">
                     <thead class="bg-primary">
                         <tr>
                             <th>&nbsp;</th>
@@ -89,6 +89,7 @@
                 null,
                 null,
                 null,
+                { "bSortable": false },
                 { "bSortable": false }
             ],
             "bStateSave": true,

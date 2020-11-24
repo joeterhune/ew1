@@ -15,6 +15,9 @@ Namespace AWS.Modules.Utilities
         Private _email As String
         Private _username As String
         Private _password As String
+        Private _telephone As String
+        Private _cell As String
+
 
 #End Region
 
@@ -84,6 +87,23 @@ Namespace AWS.Modules.Utilities
             End Get
             Set(ByVal value As String)
                 _firstname = value
+            End Set
+        End Property
+        Public Property Cell() As String
+            Get
+                Return _cell
+            End Get
+            Set(ByVal value As String)
+                _cell = value
+            End Set
+        End Property
+
+        Public Property Telephone() As String
+            Get
+                Return _telephone
+            End Get
+            Set(ByVal value As String)
+                _telephone = value
             End Set
         End Property
 

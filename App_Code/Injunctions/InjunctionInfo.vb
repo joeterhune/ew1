@@ -231,7 +231,7 @@ Namespace AWS.Modules.Injunctions
                         Return "New"
                     Case InjunctionStatus.Rejected
                         Return "Rejected by " & GetJudgeName(_reviewedByJudgeUserId)
-                    Case InjunctionStatus.Singed
+                    Case InjunctionStatus.Signed
                         Return "Signed by " & GetJudgeName(_reviewedByJudgeUserId)
                     Case InjunctionStatus.UnderReview
                         Return "Under Review By " & GetJudgeName(_reviewedByJudgeUserId)
@@ -250,7 +250,7 @@ Namespace AWS.Modules.Injunctions
                         Return "N"
                     Case InjunctionStatus.Rejected
                         Return "R"
-                    Case InjunctionStatus.Singed
+                    Case InjunctionStatus.Signed
                         Return "S"
                     Case InjunctionStatus.UnderReview
                         Return "U"
@@ -588,7 +588,7 @@ Namespace AWS.Modules.Injunctions
     Public Enum InjunctionStatus
         NewInjunction = 1
         UnderReview = 2
-        Singed = 3
+        Signed = 3
         Rejected = 4
         Reviewed = 5
     End Enum

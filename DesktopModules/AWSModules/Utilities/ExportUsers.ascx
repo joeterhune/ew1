@@ -3,11 +3,14 @@
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 
 
-    <ul class="dnnActions dnnClear">
-        <li>
-            <asp:LinkButton ID="cmdExport" runat="server" Text="Export Users" CssClass="dnnPrimaryAction" /></li>
-        <li>
-            <asp:LinkButton ID="cmdCancel" runat="server" Text="Cancel" CausesValidation="false" CssClass="dnnSecondaryAction" />
-            
-        </li>
-    </ul>
+<ul class="dnnActions dnnClear">
+    <li>
+        <asp:LinkButton ID="cmdImport" runat="server" Text="Import Users" CssClass="dnnPrimaryAction" /></li>
+
+    <li>
+        <asp:LinkButton ID="cmdExport" runat="server" Text="Export Users" CssClass="dnnPrimaryAction" /></li>
+    <li>
+        <asp:LinkButton ID="cmdCancel" runat="server" Text="Cancel" CausesValidation="false" CssClass="dnnSecondaryAction" />
+
+    </li>
+</ul>

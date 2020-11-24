@@ -223,7 +223,7 @@ Namespace AWS.Modules.Warrants
                                 container.Visible = False
                                 phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested warrant has already been reviewed and rejected.  <a href='/'>Return to the warrants list</a> and click the refresh link to update the warrants available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
                             End If
-                            If objwarrant.StatusId = WarrantStatus.Singed Then
+                            If objwarrant.StatusId = WarrantStatus.Signed Then
                                 container.Visible = False
                                 phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested warrant has already been reviewed and signed.  <a href='/'>Return to the warrants list</a> and click the refresh link to update the warrants available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
                             End If
@@ -302,7 +302,7 @@ Namespace AWS.Modules.Warrants
                         InsertDocumentId(objwarrant.WarrantId)
                     End If
                     objwarrant.IsMarked = True
-                    objwarrant.StatusId = WarrantStatus.Singed
+                    objwarrant.StatusId = WarrantStatus.Signed
                     objwarrant.ReviewedByJudgeUserId = UserInfo.UserID
                     Dim warrantTitle As String = objwarrant.Title
                     objwarrant.ReviewedDate = Now()

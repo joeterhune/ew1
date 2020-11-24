@@ -223,7 +223,7 @@ Namespace AWS.Modules.Injunctions
                                 container.Visible = False
                                 phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested Injunction has already been reviewed and rejected.  <a href='/'>Return to the Injunctions list</a> and click the refresh link to update the Injunctions available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
                             End If
-                            If objInjunction.StatusId = InjunctionStatus.Singed Then
+                            If objInjunction.StatusId = InjunctionStatus.Signed Then
                                 container.Visible = False
                                 phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested Injunction has already been reviewed and signed.  <a href='/'>Return to the Injunctions list</a> and click the refresh link to update the Injunctions available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
                             End If
@@ -301,7 +301,7 @@ Namespace AWS.Modules.Injunctions
                     If Not objInjunction.IsMarked Then
                         InsertDocumentId(objInjunction.InjunctionId)
                     End If
-                    objInjunction.StatusId = InjunctionStatus.Singed
+                    objInjunction.StatusId = InjunctionStatus.Signed
                     objInjunction.IsMarked = True
                     objInjunction.ReviewedByJudgeUserId = UserInfo.UserID
                     Dim InjunctionTitle As String = objInjunction.Title

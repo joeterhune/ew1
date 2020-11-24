@@ -489,7 +489,7 @@ Namespace AWS.Modules.Warrants
                 Dim warrantId As Integer = CType(e.Item.DataItem, WarrantsInfo).WarrantId
                 Dim judgeId As Integer = objWarrant.JudgeUserId
                 Dim statusId As WarrantStatus = objWarrant.StatusId
-                'If statusId = WarrantStatus.Singed And Not IsJudge And objWarrant.CreatedByUserId = UserId Then
+                'If statusId = WarrantStatus.Signed And Not IsJudge And objWarrant.CreatedByUserId = UserId Then
                 '    lnkAttach.NavigateUrl = EditUrl("warrantid", warrantId.ToString, "cLog")
                 '    lnkAttach.Visible = True
                 'End If
