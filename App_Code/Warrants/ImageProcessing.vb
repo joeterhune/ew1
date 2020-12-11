@@ -152,7 +152,7 @@ Namespace AWS.Modules.Warrants
                     opts.StructureOptions.ForceRebuildCrossReferenceTable = True
                     opts.StructureOptions.RestoreOrphanedPages = False
                     pDoc = New PdfDocument(Nothing, Nothing, fs, Nothing, opts)
-
+                    pDoc.AllowSavingOfPreviouslySignedDocuments=true
                 Catch ex2 As PdfException
                     ProcessPageLoadException(ex2)
                 End Try
