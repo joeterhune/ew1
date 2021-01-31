@@ -96,10 +96,10 @@ Namespace AWS.Modules.Warrants
                 pnlStatus.Visible = False
                 txtWarrantId.Text = ""
                 ltWarrantInfo.Text = ""
-                DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "Warrant Status Updated", DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.GreenSuccess)
+                DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "Document Status Updated", DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.GreenSuccess)
 
             Else
-                DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "No Matching Warrant Found", DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
+                DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "No Matching Document Found", DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
 
             End If
 
@@ -118,11 +118,11 @@ Namespace AWS.Modules.Warrants
                 sb.Append("<table class='dnnTableDisplay '><tbody><tr>")
                 sb.Append("<td><strong>Title:</strong></td><td>")
                 sb.Append(objwarrant.Title)
-                sb.Append("</td><td><strong>Defendant:</strong></td><td>")
+                sb.Append("</td><td><strong>Party:</strong></td><td>")
                 sb.Append(objwarrant.Defendant)
                 sb.Append("</td><td><strong>Agency:</strong></td><td>")
                 sb.Append(objwarrant.AgencyName)
-                sb.Append("</td><td><strong>Warrant Type:</strong></td><td>")
+                sb.Append("</td><td><strong>Document Type:</strong></td><td>")
                 sb.Append(GetWarrantTypeName(objwarrant.WarrantType))
                 sb.Append("</td></tr><tr><td><strong>Judge:</strong></td><td>")
                 sb.Append(UserController.GetUserById(PortalId, objwarrant.JudgeUserId).DisplayName)
@@ -136,7 +136,7 @@ Namespace AWS.Modules.Warrants
                 ltWarrantInfo.Text = sb.ToString
                 pnlStatus.Visible = True
             Else
-                ltWarrantInfo.Text = "<strong style='color:red'>No Matching Warrant Found!</strong>"
+                ltWarrantInfo.Text = "<strong style='color:red'>No Matching Document Found!</strong>"
             End If
         End Sub
 
@@ -144,7 +144,7 @@ Namespace AWS.Modules.Warrants
             Dim statusName As String = ""
             Select Case warrantStatusId
                 Case 1
-                    statusName = "New Warrant"
+                    statusName = "New Submission"
                 Case 2
                     statusName = "Under Review"
                 Case 3
@@ -166,6 +166,10 @@ Namespace AWS.Modules.Warrants
                     typeName = "Arrest"
                 Case 2
                     typeName = "Search"
+                Case 3
+                    typeName = "Pickup Order"
+                Case 0
+                    typeName = "Generic"
             End Select
             Return typeName
         End Function

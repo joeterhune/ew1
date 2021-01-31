@@ -5,14 +5,14 @@
     <tb:ToolBar runat="server" ID="toolbar" />
 </div>
 <div class="dnnForm dnnClear">
-    <h2 id="dnnPanel-WarrantStatus" class="dnnFormSectionHead">Find Warrant</h2>
+    <h2 id="dnnPanel-WarrantStatus" class="dnnFormSectionHead">Find Document Record</h2>
     <fieldset>
         <div class="dnnFormItem">
-            <dnn:label ID="lblWarrantId" runat="server" ControlName="txtWarrantId" Text="Warrant Id" Suffix=":" />
+            <dnn:label ID="lblWarrantId" runat="server" ControlName="txtWarrantId" Text="Document Id" Suffix=":" />
 
             <asp:TextBox ID="txtWarrantId" runat="server" MaxLength="20"></asp:TextBox> <asp:LinkButton ID="cmdFindWarrant" runat="server" ValidationGroup="warrant" class="btn btn-primary" Text="Find" />
-            <asp:RequiredFieldValidator ID="valId" runat="server" ControlToValidate="txtWarrantId" ErrorMessage="Warrant Id is Required" CssClass="dnnFormMessage dnnFormError" Display="Dynamic" ValidationGroup="warrant"></asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="valNum" runat="server" ControlToValidate="txtWarrantId" ErrorMessage="Warrant Id must be an Integer" Type="Integer" Operator="DataTypeCheck" ValidationGroup="warrant" CssClass="dnnFormMessage dnnFormError" Display="Dynamic"></asp:CompareValidator>
+            <asp:RequiredFieldValidator ID="valId" runat="server" ControlToValidate="txtWarrantId" ErrorMessage="Document Id is Required" CssClass="dnnFormMessage dnnFormError" Display="Dynamic" ValidationGroup="warrant"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="valNum" runat="server" ControlToValidate="txtWarrantId" ErrorMessage="Document Id must be an Integer" Type="Integer" Operator="DataTypeCheck" ValidationGroup="warrant" CssClass="dnnFormMessage dnnFormError" Display="Dynamic"></asp:CompareValidator>
         </div>
         <asp:Literal ID="ltWarrantInfo" runat="server" />
         <asp:Panel ID="pnlStatus" CssClass="dnnFormItem" runat="server" Visible="false">

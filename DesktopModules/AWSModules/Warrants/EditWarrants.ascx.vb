@@ -137,10 +137,10 @@ Namespace AWS.Modules.Warrants
                         If Not CoverJudgeInfo.Profile.ProfileProperties("Email3") Is Nothing Then
                             address3 = CoverJudgeInfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
-                        subject = "New Warrant Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
+                        subject = "New Document Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
                         userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new warrant (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
-                        body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that warrants be forwarded to you during their absence."
+                        body = "A new Document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
+                        body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
 
                         Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
                         If address2 <> "" Then
@@ -152,13 +152,13 @@ Namespace AWS.Modules.Warrants
 
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
-                        body += "Your warrant notification has been forwarded to the Honorable " & coverJudgeName
+                        body += "Your document notification has been forwarded to the Honorable " & coverJudgeName
                         Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
 
                     Else
-                        subject = "New Warrant Submitted for Review"
+                        subject = "New Document Submitted for Review"
                         userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new warrant has been submitted by " & userDisplay & " from " & agencyName
+                        body = "A new document has been submitted by " & userDisplay & " from " & agencyName
                         If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                             address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                         End If
@@ -181,9 +181,9 @@ Namespace AWS.Modules.Warrants
                     End If
 
                 Else
-                    subject = "New Warrant Submitted for Review"
+                    subject = "New Document Submitted for Review"
                     userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                    body = "A new warrant (ID: " & warrantId & ") has been submitted by " & userDisplay & " from " & agencyName
+                    body = "A new document (ID: " & warrantId & ") has been submitted by " & userDisplay & " from " & agencyName
                     If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                         address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                     End If
@@ -233,10 +233,10 @@ Namespace AWS.Modules.Warrants
                         If Not CoverJudgeInfo.Profile.ProfileProperties("Email3") Is Nothing Then
                             address3 = CoverJudgeInfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
-                        subject = "New Warrant Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
+                        subject = "New Document Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
                         userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new warrant (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
-                        body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that warrants be forwarded to you during their absence."
+                        body = "A new document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
+                        body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
                         If SendNow Then
                             Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
                             If address2 <> "" Then
@@ -248,13 +248,13 @@ Namespace AWS.Modules.Warrants
                         End If
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
-                        body += "Your warrant notification has been forwarded to the Honorable " & coverJudgeName
+                        body += "Your document notification has been forwarded to the Honorable " & coverJudgeName
                         Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
 
                     Else
-                        subject = "New Warrant Submitted for Review"
+                        subject = "New Document Submitted for Review"
                         userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new warrant has been submitted by " & userDisplay & " from " & agencyName
+                        body = "A new document has been submitted by " & userDisplay & " from " & agencyName
                         If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                             address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                         End If
@@ -277,9 +277,9 @@ Namespace AWS.Modules.Warrants
                     End If
 
                 Else
-                    subject = "New Warrant Submitted for Review"
+                    subject = "New Document Submitted for Review"
                     userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                    body = "A new warrant (ID: " & warrantId & ") has been submitted by " & userDisplay & " from " & agencyName
+                    body = "A new document (ID: " & warrantId & ") has been submitted by " & userDisplay & " from " & agencyName
                     If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                         address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                     End If
@@ -321,7 +321,7 @@ Namespace AWS.Modules.Warrants
                 If Page.IsPostBack = False Then
                     Dim county As String = ""
                     If JudgeRole = "" Then
-                        DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The Warrants Application has not been configured. Please contact the site administrator", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
+                        DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The eSubmit Application has not been configured. Please contact the site administrator", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
                         pnlWarrant.Visible = False
                         cmdUpdate.Visible = False
                         Exit Sub
@@ -402,7 +402,7 @@ Namespace AWS.Modules.Warrants
                     If hdFileId.Value <> "" Then
                         objwarrant.FileId = hdFileId.Value
                     Else
-                        DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The warrant file ID could not be found.  Please cancel this process and try again.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
+                        DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The document file ID could not be found.  Please cancel this process and try again.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
                         Exit Sub
                     End If
                     Dim ctl As New Controller
@@ -427,6 +427,8 @@ Namespace AWS.Modules.Warrants
                     objwarrant.County = drpCounty.SelectedValue
                     If rblWarrantType.SelectedValue <> "" Then
                         objwarrant.WarrantType = Int32.Parse(rblWarrantType.SelectedValue)
+                    Else
+                        objwarrant.WarrantType = WarrantType.Generic
                     End If
                     Dim warrantId As Integer = ctl.AddWarrant(objwarrant)
                     Try
@@ -435,7 +437,7 @@ Namespace AWS.Modules.Warrants
 
                         SendEmailResponse(objAgency.AgencyName, warrantId, SendNow)
                     Catch ex As Exception
-                        DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The warrant was successfully upload, however, there was an error sending the  email.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
+                        DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The document was successfully upload, however, there was an error sending the  email.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
                         ProcessModuleLoadException(Me, ex, False)
                     End Try
                 Else
@@ -449,7 +451,7 @@ Namespace AWS.Modules.Warrants
                     Dim judgeName As String = Judgeinfo.DisplayName
                     Dim notificationMessage As String = judgeName & " is out of the office. "
                     If coverJudgeName <> "" Then
-                        notificationMessage += " Your warrant has been forwarded to " & coverJudgeName
+                        notificationMessage += " Your document has been forwarded to " & coverJudgeName
                     Else
                         notificationMessage += " You will receive an email with further information from the Judge"
                     End If

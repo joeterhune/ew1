@@ -653,6 +653,7 @@ Namespace AWS.Modules.Warrants
     Public Enum WarrantType
         Search = 2
         Arrest = 1
+        Generic = 0
     End Enum
 
     Public Class CountyInfo

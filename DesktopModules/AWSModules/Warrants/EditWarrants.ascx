@@ -22,7 +22,7 @@
             </div>
             <p class="info clearfix"></p>
         </div>
-        <h2 id="dnnPanel-FileInfo" class="dnnFormSectionHead">Enter Warrant Information</h2>
+        <h2 id="dnnPanel-FileInfo" class="dnnFormSectionHead">Enter Document Information</h2>
         <div class="dnnFormItem" id="agencyDiv" runat="server" visible="false">
             <dnn:Label ID="lblAgency" runat="server" ControlName="drpAgency" Text="Agency" Suffix=":" CssClass="dnnFormRequired" HelpText="Select the Associated Agency"></dnn:Label>
             <asp:DropDownList ID="drpAgency" runat="server" onchange="FillJudges()" TabIndex="0"></asp:DropDownList>
@@ -31,17 +31,17 @@
         </div>
 
         <div class="dnnFormItem">
-            <dnn:Label ID="lblTitle" runat="server" ControlName="txtTitle" Text="Title" Suffix=":" CssClass="dnnFormRequired" HelpText="Enter Warrant Title"></dnn:Label>
+            <dnn:Label ID="lblTitle" runat="server" ControlName="txtTitle" Text="Title" Suffix=":" CssClass="dnnFormRequired" HelpText="Enter Document Title"></dnn:Label>
             <asp:TextBox ID="txtTitle" runat="server" MaxLength="50" CssClass="firstText NormalTextBox" TabIndex="1" />
             <asp:RequiredFieldValidator ID="valTitle" ControlToValidate="txtTitle"
                 CssClass="dnnFormMessage dnnFormError" Display="Dynamic" ErrorMessage="Please enter a descriptive title" runat="server" />
         </div>
 
         <div class="dnnFormItem">
-            <dnn:Label ID="lblDefendantName" runat="server" ControlName="txtDefendant" Text="Defendant" Suffix=":" CssClass="dnnFormRequired" HelpText="Enter Defendant Name or unknown defendant."></dnn:Label>
-            <asp:TextBox ID="txtDefendant" runat="server" CssClass="NormalTextBox" MaxLength="250" placeholder='Enter "unknown defandant" where applicable.' TabIndex="2" />
+            <dnn:Label ID="lblDefendantName" runat="server" ControlName="txtDefendant" Text="Party" Suffix=":" CssClass="dnnFormRequired" HelpText="Enter Defendant Name or unknown defendant."></dnn:Label>
+            <asp:TextBox ID="txtDefendant" runat="server" CssClass="NormalTextBox" MaxLength="250" placeholder='Enter "unknown" where applicable.' TabIndex="2" />
             <asp:RequiredFieldValidator ID="valDefendant" ControlToValidate="txtDefendant"
-                CssClass="dnnFormMessage dnnFormError" Display="Dynamic" ErrorMessage="Please enter the Defendant's Name" runat="server" />
+                CssClass="dnnFormMessage dnnFormError" Display="Dynamic" ErrorMessage="Please enter the Party's Name" runat="server" />
         </div>
         <div id="divCounty" runat="server" class="dnnFormItem awsToggleCountyList">
             <dnn:Label ID="lblCounty" runat="server" ControlName="drpCounty" Text="County" Suffix=":" CssClass="dnnFormRequired" HelpText="Select County"></dnn:Label>
@@ -67,14 +67,14 @@
             Please select a different division or contact the site administrator.
         </div>
         <div class="dnnFormItem warrant-type">
-            <dnn:Label ID="lblWarrantType" runat="server" ControlName="rblWarrantType" Text="Warrant Type" Suffix=":" CssClass="dnnFormRequired" HelpText="Select Warrant Type"></dnn:Label>
+            <dnn:Label ID="lblWarrantType" runat="server" ControlName="rblWarrantType" Text="Document Type" Suffix=":" CssClass="dnnFormRequired" HelpText="Select Document Type"></dnn:Label>
             <asp:RadioButtonList runat="server" ID="rblWarrantType" RepeatDirection="Horizontal" CssClass="dnnFormRadioButtons" TabIndex="6" RepeatLayout="Flow">
                 <asp:ListItem Value="1" Text="Arrest Warrant" />
                 <asp:ListItem Value="2" Text="Search Warrant" />
                 <asp:ListItem Value="3" Text="Pickup Order" />
             </asp:RadioButtonList>
             <asp:RequiredFieldValidator ID="valWarrantType" runat="server" ControlToValidate="rblWarrantType" CssClass="dnnFormMessage dnnFormError"
-                Display="Dynamic" ErrorMessage="Warrant Type is Required" />
+                Display="Dynamic" ErrorMessage="Document Type is Required" />
         </div>
         <div class="validation">
             <div class="dnnFormItem">
@@ -100,7 +100,7 @@
             </div>
 
             <div class="dnnFormItem sa-approve">
-                <dnn:Label ID="lblsaApproved" runat="server" ControlName="chkSaApproved" Text="State Attorney Approved?" Suffix=":" HelpText="Check to Confirm that the State Attorney has Approved the Warrant" />
+                <dnn:Label ID="lblsaApproved" runat="server" ControlName="chkSaApproved" Text="State Attorney Approved?" Suffix=":" HelpText="Check to Confirm that the State Attorney has Approved the Document" />
                 <asp:CheckBox ID="chkSaApproved" runat="server" CssClass="awsShowText sa-chk" Text="( Check box if Yes )" TabIndex="9" />
             </div>
             <div class="dnnFormItem awsToggleDisplay">
@@ -116,7 +116,7 @@
                     <asp:ListItem Text="No" Value="0" />
                 </asp:RadioButtonList>
                 <asp:CustomValidator ID="valEmergency" runat="server" ClientValidationFunction="rblEmergency_ClientValidate" OnServerValidate="valEmergency_ServerValidate" ErrorMessage="You must select Yes or No" Display="Dynamic" CssClass="dnnFormMessage dnnFormError"></asp:CustomValidator>
-                <p class="dnnClear dnnFormMessage dnnFormInfo" style="margin-left: 35%; width: 47%; max-width: 445px">Selecting Yes will send the warrant notification immediately to the Judge. Selecting No will postpone the notification until <span id="judgeTime"></span>.</p>
+                <p class="dnnClear dnnFormMessage dnnFormInfo" style="margin-left: 35%; width: 47%; max-width: 445px">Selecting Yes will send the document notification immediately to the Judge. Selecting No will postpone the notification until <span id="judgeTime"></span>.</p>
             </div>
         </div>
         <asp:HiddenField ID="hdFileId" runat="server" />
@@ -231,25 +231,35 @@
         $("#<%=rblOffenseType.ClientID%> input").click(function () {
             $('#<%= rblWarrantType.ClientID%> input:checked').prop("checked", false);
             $(".validation").hide();
-            var divsionType = $("#<%=rblOffenseType.ClientID%> input").index(this);
-            if (divsionType < 2) {
-                pickupOrder.next().hide().next().hide();
-                pickupOrder.hide();
-                arrestWarrant.next().fadeIn("slow").next().fadeIn("slow");
-                arrestWarrant.show();
-                $(".pca").hide();
-                $(".sa-approve").fadeIn("slow");
+            var divsionDrop = $("#<%=rblOffenseType.ClientID%> input");
+            var selectedIndex = divsionDrop.index(this);
+            var selectedText = divsionDrop[selectedIndex].labels[0].outerText;
+            if (selectedText.toLowerCase() === "other") {
                 $(".pca-chk input").prop("checked", true);
-                $("#<%=lblWarrant.ClientID%>_lblLabel").text("Warrant Included?");
-                $("#<%=valWarrantCheck.ClientID%>").text("Warrant must be included");
-            } else {
-                pickupOrder.next().fadeIn("slow").next().fadeIn("slow");
-                pickupOrder.show();
-                arrestWarrant.next().hide().next().hide();
-                arrestWarrant.hide();
+                $(".warrant-chk input").prop("checked", true);
+                $(".affidavit-chk input").prop("checked", true);
+                $("#<%=rblWarrantType.ClientID%> input")[0].checked = true;
+                $("#<%=rblWarrantType.ClientID%> input")[0].value = "0";
             }
-            $(".warrant-type").fadeIn("slow");
-
+            else {
+                if (selectedIndex < 2) {
+                    pickupOrder.next().hide().next().hide();
+                    pickupOrder.hide();
+                    arrestWarrant.next().fadeIn("slow").next().fadeIn("slow");
+                    arrestWarrant.show();
+                    $(".pca").hide();
+                    $(".sa-approve").fadeIn("slow");
+                    $(".pca-chk input").prop("checked", true);
+                    $("#<%=lblWarrant.ClientID%>_lblLabel").text("Warrant Included?");
+                    $("#<%=valWarrantCheck.ClientID%>").text("Warrant must be included");
+                } else {
+                    pickupOrder.next().fadeIn("slow").next().fadeIn("slow");
+                    pickupOrder.show();
+                    arrestWarrant.next().hide().next().hide();
+                    arrestWarrant.hide();
+                }
+                $(".warrant-type").fadeIn("slow");
+            }
         });
 
         // Warrant Type Selection
@@ -279,7 +289,7 @@
             $(".info").html("<span class='NormalRed'>Unable to upload file. Please make sure the file is in Tiff or PDF format.</span>");
         } else {
             $("#fileInputWarning").fadeOut();
-            $(".info").html("<span class='NormalRed'>Warrant File Captured.</span>");
+            $(".info").html("<span class='NormalRed'>Document Captured.</span>");
             $(".firstText").focus();
         }
     }

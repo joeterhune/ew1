@@ -38,12 +38,12 @@ Namespace AWS.Modules.Warrants
                             End If
 
                         else
-                            response = "<strong class='alert-danger'>Error:</strong> Only Warrant Owner may attach return service"
+                            response = "<strong class='alert-danger'>Error:</strong> Only Document Owner may attach return service"
                         End If
                         context.Response.ContentType = "text/plain"
                         context.Response.Write(response)
                     else
-                        response = "<strong class='alert-danger'>Error:</strong> Warrant record does not exit. Could not locate Warrant File"
+                        response = "<strong class='alert-danger'>Error:</strong> Document record does not exit. Could not locate Document File"
                     End If
                 Catch ex As Exception
                     LogException(ex)

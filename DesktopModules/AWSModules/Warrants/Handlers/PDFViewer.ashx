@@ -39,7 +39,7 @@ Namespace AWS.Modules.Warrants
                         If objwarrant.StatusId = WarrantStatus.Reviewed Then
                             insertJavaScript = True
                         End If
-                        If objwarrant.StatusId = WarrantStatus.Rejected Or objwarrant.StatusId = WarrantStatus.Singed Then
+                        If objwarrant.StatusId = WarrantStatus.Rejected Or objwarrant.StatusId = WarrantStatus.Signed Then
                             If Not IsJudge(objuser.UserID) Then
                                 objwarrant.StatusId = WarrantStatus.Reviewed
                                 objwarrant.ReviewedByAgencyUserId = objuser.UserID
@@ -49,13 +49,13 @@ Namespace AWS.Modules.Warrants
                             End If
                         End If
                     Else
-                        Throw New Exception("Unassociated warrant file")
+                        Throw New Exception("Unassociated document file")
                     End If
                     context.Response.ClearContent()
                     context.Response.Clear()
                     If fileExists > 0 Then
                         context.Response.ContentType = "application/pdf"
-                        context.Response.AddHeader("content-disposition", "inline; filename=Warrant.pdf")
+                        context.Response.AddHeader("content-disposition", "inline; filename=Document.pdf")
                         Dim col As New PdfImageCollection()
                         Dim warrantFile As WarrantImage = GetWarrantFile(objwarrant.fileid)
                         Dim imageData As Byte() = GetImage(warrantFile)
@@ -70,7 +70,7 @@ Namespace AWS.Modules.Warrants
                             ' Create the PDF.
                             Dim pdf As New PdfEncoder With {
                                 .JpegQuality = 85,
-                                .Metadata = New PdfMetadata(warrantTitle, "Circuit Court", "Warrant File", "", "", "", objwarrant.CreatedDate, objwarrant.ReviewedDate),
+                                .Metadata = New PdfMetadata(warrantTitle, "Circuit Court", "Document File", "", "", "", objwarrant.CreatedDate, objwarrant.ReviewedDate),
                                 .SizeMode = PdfPageSizeMode.FitToPage,
                                 .PageSize = New Size(612, 792)
                             }

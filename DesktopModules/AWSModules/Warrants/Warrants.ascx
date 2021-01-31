@@ -9,14 +9,14 @@
     <asp:UpdatePanel ID="dptUpdate" runat="server" RenderMode="Block" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
             <asp:Literal ID="lblDeleteNotice" runat="server" Visible="false">
-        <p class="alert alert-danger"><em class="fa fa-warning"></em> The warrants highlighted below have been completed and will be automatically deleted {0} hours after viewing.</p>
+        <p class="alert alert-danger"><em class="fa fa-warning"></em> The records highlighted below have been completed and will be automatically deleted {0} hours after viewing.</p>
             </asp:Literal>
             <div class="btn-toolbar " role="toolbar" aria-label="Toolbar Group" style="display: block; margin-bottom: 8px">
 
                 <tb:ToolBar runat="server" ID="toolbar" />
                 <div class="btn-group pull-right " role="group" aria-label="Action group">
                     <strong>
-                        <asp:LinkButton ID="cmdShowAssigned" Visible="false" runat="server" CssClass="" CommandArgument="true"><em class="fa fa-check-square fa-lg"></em> Show only my warrants</asp:LinkButton></strong>
+                        <asp:LinkButton ID="cmdShowAssigned" Visible="false" runat="server" CssClass="" CommandArgument="true"><em class="fa fa-check-square fa-lg"></em> Show only my documents</asp:LinkButton></strong>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                     </asp:DropDownList>
                 </div>
                 <div class="form-group">
-                    <asp:Label ID="lblDefendant" CssClass="control-label" runat="server" AssociatedControlID="txtDefendant">Defendant:</asp:Label>
+                    <asp:Label ID="lblDefendant" CssClass="control-label" runat="server" AssociatedControlID="txtDefendant">Party:</asp:Label>
                     <asp:TextBox ID="txtDefendant" AutoPostBack="true" OnTextChanged="txtDefendant_TextChanged" runat="server" MaxLength="50" CssClass="form-control form-control-sm" />
                 </div>
                 <div class="form-group">
@@ -52,7 +52,7 @@
             <asp:Repeater runat="server" ID="rptWarrants">
                 <HeaderTemplate>
 
-                    <table id="warrants" summary="List of Warrants" class="table table-striped">
+                    <table id="warrants" summary="List of Documents" class="table table-striped">
                         <thead class="bg-primary">
                             <tr>
                                 <th>&nbsp;</th>
@@ -60,7 +60,7 @@
                                 </th>
                                 <th>Title
                                 </th>
-                                <th>Defendant</th>
+                                <th>Party</th>
                                 <th>Submitted By</th>
                                 <th>Agency</th>
                                 <th>Judge</th>
@@ -101,8 +101,8 @@
                         </td>
                         <td><span data-toggle="tooltip" class="toolTip" data-placement="top" title='<%#Eval("statusTooltip")%>'><%#DataBinder.Eval(Container.DataItem, "Status")%></span></td>
                         <td class="command command-icon">
-                            <asp:LinkButton ID="cmdRelease" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "WarrantId").ToString() %>' CommandName="Release"><em class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="Release Warrant"></em></asp:LinkButton>
-                            <asp:LinkButton ID="cmdDelete" runat="server" ToolTip="Delete Warrant" CommandName="Delete" OnClientClick="return confirm('Delete this Warrant?')" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "WarrantId").ToString() %>'><em class="fa fa-trash"></em></asp:LinkButton>
+                            <asp:LinkButton ID="cmdRelease" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "WarrantId").ToString() %>' CommandName="Release"><em class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="Release Document"></em></asp:LinkButton>
+                            <asp:LinkButton ID="cmdDelete" runat="server" ToolTip="Delete Record" CommandName="Delete" OnClientClick="return confirm('Delete this Record?')" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "WarrantId").ToString() %>'><em class="fa fa-trash"></em></asp:LinkButton>
                         </td>
 
                     </tr>
@@ -125,7 +125,7 @@
     </asp:UpdatePanel>
 
     <asp:Literal ID="ltMessage" runat="server">
-    <p class="alert alert-info" style="margin-top: 20px"><em class="fa fa-info-circle"></em> <strong>Please Note:</strong> Warrants will be automatically deleted {0} hours after you or another agency member view a signed or rejected warrant.</p></asp:Literal>
+    <p class="alert alert-info" style="margin-top: 20px"><em class="fa fa-info-circle"></em> <strong>Please Note:</strong> Documents will be automatically deleted {0} hours after you or another agency member view a signed or rejected document.</p></asp:Literal>
 
 
 </div>

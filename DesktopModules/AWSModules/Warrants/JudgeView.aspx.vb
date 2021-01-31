@@ -204,7 +204,7 @@ Namespace AWS.Modules.Warrants
                     encryptedValue = Request.QueryString("enc")
                     _warrantId = _encryptor.QueryStringDecode(encryptedValue, UserInfo.Username)
                 Else
-                    Throw New ArgumentException("The Warrant File Could not be Retrieved from the Database")
+                    Throw New ArgumentException("The Document Could not be Retrieved from the Database")
                 End If
                 If Not Request.QueryString("ModuleId") Is Nothing Then
                     _tabModuleId = Int32.Parse(Request.QueryString("ModuleId"))
@@ -221,11 +221,11 @@ Namespace AWS.Modules.Warrants
                         If Not objwarrant Is Nothing Then
                             If objwarrant.StatusId = WarrantStatus.Rejected Then
                                 container.Visible = False
-                                phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested warrant has already been reviewed and rejected.  <a href='/'>Return to the warrants list</a> and click the refresh link to update the warrants available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
+                                phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested document has already been reviewed and rejected.  <a href='/'>Return to the document list</a> and click the refresh link to update the documents available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
                             End If
                             If objwarrant.StatusId = WarrantStatus.Signed Then
                                 container.Visible = False
-                                phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested warrant has already been reviewed and signed.  <a href='/'>Return to the warrants list</a> and click the refresh link to update the warrants available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
+                                phMessage.Controls.Add(DotNetNuke.UI.Skins.Skin.GetModuleMessageControl("Notice", "The requested document has already been reviewed and signed.  <a href='/'>Return to the document list</a> and click the refresh link to update the documents available for signing", Skins.Controls.ModuleMessage.ModuleMessageType.BlueInfo))
                             End If
 
                             Dim objLog As New LogInfo With {
@@ -249,13 +249,13 @@ Namespace AWS.Modules.Warrants
                                 Dim imageWidth As Integer = WebAnnotationViewer1.Image.Width
                                 InitializeDefaultAnnotations(JudgeInfo, UserInfo.Username, imageWidth)
                             Else
-                                Throw New ArgumentException("The Warrant File Could not be Retrieved from the Database")
+                                Throw New ArgumentException("The Document File Could not be Retrieved from the Database")
                             End If
                         Else
-                            Throw New ArgumentException("Warrant Information Invalid")
+                            Throw New ArgumentException("Document Information Invalid")
                         End If
                     Else
-                        Throw New ArgumentException("Warrant Information Invalid")
+                        Throw New ArgumentException("Document Information Invalid")
                     End If
                     ' Prepare and open the default image file
                 End If
@@ -339,17 +339,17 @@ Namespace AWS.Modules.Warrants
                         End If
                         Dim fromaddress As String = PortalSettings.Email
                         Dim toaddress As String = UserController.GetUserById(portalId, objwarrant.CreatedByUserId).Email
-                        Dim subject As String = "Warrant Submission Accepted"
+                        Dim subject As String = "Document Submission Accepted"
 
-                        Dim body As String = "The warrant submission [" & warrantTitle & "] has been signed."
+                        Dim body As String = "The document submission [" & warrantTitle & "] has been signed."
                         Services.Mail.Mail.SendEmail(fromaddress, toaddress, subject, body)
                     Catch ex As Exception
                         LogException(ex)
-                        returnString += "0|The warrant was approved, but an error occurred sending the email messages."
+                        returnString += "0|The document was approved, but an error occurred sending the email messages."
                     End Try
                 Else
                     WebAnnotationViewer1.ClearAnnotations()
-                    returnString = "0|Warrant could not be found. Please try again."
+                    returnString = "0|document could not be found. Please try again."
                 End If
 
             Catch ex As Exception
@@ -430,15 +430,15 @@ Namespace AWS.Modules.Warrants
                     Try
                         Dim fromaddress As String = PortalSettings.Email
                         Dim toaddress As String = UserController.GetUserById(portalId, objwarrant.CreatedByUserId).Email
-                        Dim subject As String = "Warrant Submission Rejected"
+                        Dim subject As String = "Document Submission Rejected"
 
-                        Dim body As String = "The warrant submission [" & warrantTitle & "] was rejected for the following reason: " & rejecttest
+                        Dim body As String = "The document submission [" & warrantTitle & "] was rejected for the following reason: " & rejecttest
                         Services.Mail.Mail.SendEmail(fromaddress, toaddress, subject, body)
                     Catch
-                        returnString += "0|The warrant was rejected, but an error occurred sending the email messages."
+                        returnString += "0|The document was rejected, but an error occurred sending the email messages."
                     End Try
                 Else
-                    returnString = "0|Warrant could not be updated. Please try again."
+                    returnString = "0|Document could not be updated. Please try again."
                 End If
             Catch ex As Exception
                 WebAnnotationViewer1.ClearAnnotations()

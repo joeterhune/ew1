@@ -339,7 +339,7 @@ Namespace AWS.Modules.Warrants
                     toolbar.SergeantRoleName = SergeantRoleName
                     txtStartDate.Text = StartDate.ToShortDateString
                     txtEndDate.Text = EndDate.ToShortDateString
-                    ltHeader.Text = "<h2>Warrants List</h2>"
+                    ltHeader.Text = "<h2>Document List</h2>"
                     If JudgeRoleName = "" Or AdminJudge = "" Or SergeantRoleName = "" Then
                         DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The Application Settings have not been set.  Please contact the site administrator to configure settings.", DotNetNuke.UI.Skins.Controls.ModuleMessage.ModuleMessageType.YellowWarning)
                         rptWarrants.Visible = False
@@ -375,9 +375,9 @@ Namespace AWS.Modules.Warrants
                         Else
                             If Not objAgencyUser Is Nothing Then
                                 If IsClerk Then
-                                    ltHeader.Text = "<h2>Signed Warrants</h2>"
+                                    ltHeader.Text = "<h2>Signed Documents</h2>"
                                 Else
-                                    ltHeader.Text = "<h2>Warrants for " & UserInfo.DisplayName & "</h2>"
+                                    ltHeader.Text = "<h2>Documents for " & UserInfo.DisplayName & "</h2>"
                                     If objAgencyUser.IsAdmin Then
                                         dvFilters.Visible = False
                                         rptWarrants.Visible = False
@@ -566,10 +566,10 @@ Namespace AWS.Modules.Warrants
 
         Private Sub cmdShowAssigned_Click(sender As Object, e As EventArgs) Handles cmdShowAssigned.Click
             If cmdShowAssigned.CommandArgument = "true" Then
-                cmdShowAssigned.Text = "<em class=""fa fa-square fa-lg""></em> Show only my warrants"
+                cmdShowAssigned.Text = "<em class=""fa fa-square fa-lg""></em> Show only my documents"
                 cmdShowAssigned.CommandArgument = "false"
             Else
-                cmdShowAssigned.Text = "<em class=""fa fa-check-square fa-lg""></em> Show only my warrants"
+                cmdShowAssigned.Text = "<em class=""fa fa-check-square fa-lg""></em> Show only my documents"
                 cmdShowAssigned.CommandArgument = "true"
             End If
 

@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
-    <value>Warrants Settings</value>
+    <value>eSubmit Settings</value>
   </data>
   <data name="lblAdminJudge.Help" xml:space="preserve">
-    <value>The Master Judge account can approve other judges for warrant signing.</value>
+    <value>The Master Judge account can approve other judges for document signing.</value>
   </data>
   <data name="lblAdminJudge.Text" xml:space="preserve">
     <value>Master Judge Role</value>
   </data>
   <data name="lblAgencySupervisor.Help" xml:space="preserve">
-    <value>Select the role from the list that will be used for Agency Supervisors which can see warrants for the entire agency and any sub agencies</value>
+    <value>Select the role from the list that will be used for Agency Supervisors which can see documents for the entire agency and any sub agencies</value>
   </data>
   <data name="lblAgencySupervisor.Text" xml:space="preserve">
     <value>Agency Supervisor Role</value>
   </data>
   <data name="lblClaimedThreshold.Help" xml:space="preserve">
-    <value>Enter the number of days to wait before sending notification of unclaimed warrants.  Enter zero to avoid sending notifications.</value>
+    <value>Enter the number of days to wait before sending notification of unclaimed documents. Enter zero to avoid sending notifications.</value>
   </data>
   <data name="lblClaimedThreshold.Text" xml:space="preserve">
     <value>Unclaimed Notification Threshold (in days)</value>
   </data>
   <data name="lblCompletedThreshold.Help" xml:space="preserve">
-    <value>Enter the number of hours to retain completed warrants. Enter Zero to retain completed warrants.</value>
+    <value>Enter the number of hours to retain completed documents. Enter Zero to retain completed documents.</value>
   </data>
   <data name="lblCompletedThreshold.Text" xml:space="preserve">
-    <value>Completed Warrant Threshold (in hours)</value>
+    <value>Completed Document Threshold (in hours)</value>
   </data>
   <data name="lblContactListUrl.Help" xml:space="preserve">
     <value>Select the Page used for Judge Contact Information</value>
@@ -151,7 +151,7 @@
     <value>Contact List Page</value>
   </data>
   <data name="lblDeleteThreshold.Help" xml:space="preserve">
-    <value>Enter the number of days to retain signed warrants before deletion.  Enter zero to retain signed warrants.</value>
+    <value>Enter the number of days to retain signed documents before deletion.  Enter zero to retain signed documents.</value>
   </data>
   <data name="lblDeleteThreshold.Text" xml:space="preserve">
     <value>Delete Threshold (in days)</value>
@@ -199,15 +199,15 @@
     <value>Sender Email Address</value>
   </data>
   <data name="lblSignedThreshold.Help" xml:space="preserve">
-    <value>Enter the number of days to wait before sending notification of unreviewed warrants.  Enter zero to avoid sending notifications.</value>
+    <value>Enter the number of days to wait before sending notification of unreviewed documents.  Enter zero to avoid sending notifications.</value>
   </data>
   <data name="lblSignedThreshold.Text" xml:space="preserve">
     <value>Unreviewed Notification Threshold (in days)</value>
   </data>
   <data name="lblSignedWarrantRole.Help" xml:space="preserve">
-    <value>Select the role that Clerk's and Sheriff's offices will use to view all signed warrants</value>
+    <value>Select the role that Clerk's and Sheriff's offices will use to view all signed documents</value>
   </data>
   <data name="lblSignedWarrantRole.Text" xml:space="preserve">
-    <value>Show Signed Warrants Role</value>
+    <value>Show Signed Documents Role</value>
   </data>
 </root>
