@@ -303,6 +303,9 @@ Namespace AWS.Modules.Injunctions
             If txtID.Text <> "" Then
                 colInjunctions = colInjunctions.Where(Function(w) w.InjunctionId = Int32.Parse(txtID.Text)).ToList
             End If
+            If drpAgency.Items.Count > 1 And drpAgency.SelectedValue <> "0" Then
+                colInjunctions = colInjunctions.Where(Function(w) w.AgencyId = Int32.Parse(drpAgency.SelectedValue)).ToList
+            End If
             rptInjunctions.DataSource = colInjunctions.OrderByDescending(Function(i) i.InjunctionId)
             rptInjunctions.DataBind()
 
@@ -460,7 +463,16 @@ Namespace AWS.Modules.Injunctions
                             drpAgency.Enabled = False
                             lblAgency.Enabled = False
                             If Not objAgencyUser Is Nothing Then
-                                drpAgency.Items.Add(New ListItem(objAgencyUser.AgencyName))
+                                drpAgency.DataValueField = "AgencyId"
+                                drpAgency.DataTextField = "AgencyName"
+                                drpAgency.DataSource = ctl.ListUserAgencies(ModuleId, UserId)
+                                drpAgency.DataBind()
+                                drpAgency.SelectedValue = objAgencyUser.AgencyId
+                                If drpAgency.Items.Count > 1 Then
+                                    drpAgency.Enabled = True
+                                    drpAgency.Items.Insert(0, New ListItem("All", "0"))
+                                    drpAgency.SelectedValue = "0"
+                                End If
                             End If
                         End If
                     End If

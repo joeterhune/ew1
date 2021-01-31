@@ -103,12 +103,11 @@ Namespace AWS.Modules.Warrants
 
 #Region "UserByAgency Methods"
         Public MustOverride Function GetAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer) As IDataReader
-
+        Public MustOverride Function ListAgencyUsers(ByVal agencyId As Integer) As IDataReader
         Public MustOverride Sub AddAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer, ByVal isAdmin As Boolean)
         Public MustOverride Sub UpdateAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer, ByVal isAdmin As Boolean)
         Public MustOverride Sub DeleteAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer)
         Public MustOverride Function GetUser(moduleId As Integer, userId As Integer) As IDataReader
-        Public MustOverride Function ListAgencyUsers(agencyId As Integer) As IDataReader
 #End Region
 
 #Region "Agencies Methods"
@@ -168,6 +167,9 @@ Namespace AWS.Modules.Warrants
         Public MustOverride Sub DeleteJudgeJudgeTypeXref(judgeId As Integer, moduleId As Integer)
         Public MustOverride Function ListJudgesByJudgeType(judgeTypeId As Integer, moduleId As Integer) As IDataReader
         Public MustOverride Function ListJudgeTypesByJudge(judgeId As Integer, moduleId As Integer) As IDataReader
+
+        Public MustOverride Function ListUserAgencies(moduleId As Integer, userid As Integer) As IDataReader
+           
 #End Region
 
     End Class

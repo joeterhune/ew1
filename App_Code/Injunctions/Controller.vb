@@ -222,6 +222,9 @@ Namespace AWS.Modules.Injunctions
         Public Sub DeleteAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer)
             DataProvider.Instance().DeleteAgencyUser(agencyId, userId)
         End Sub
+         Public Function ListUserAgencies(moduleId As Integer, userId As Integer) As List(Of AgencyUserInfo)
+             Return CBO.FillCollection(Of AgencyUserInfo)(DataProvider.Instance().ListUserAgencies(moduleId,userId))
+        End Function
 #End Region
 
 #Region "Judge Methods"
@@ -385,6 +388,8 @@ Namespace AWS.Modules.Injunctions
             End If
             Return approved
         End Function
+
+       
 
 #End Region
 

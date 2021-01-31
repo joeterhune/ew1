@@ -290,6 +290,9 @@ Namespace AWS.Modules.Warrants
         Public Overrides Function GetUser(ModuleId As Integer, userId As Integer) As IDataReader
             Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_get_user", ModuleId, userId), IDataReader)
         End Function
+        Public Overrides Function ListUserAgencies(ModuleId As Integer, userId As Integer) As IDataReader
+            Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_get_user", ModuleId, userId), IDataReader)
+        End Function
 
         Public Overrides Function GetAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer) As IDataReader
             Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_get_agency_user", agencyId, userId), IDataReader)
@@ -384,15 +387,15 @@ Namespace AWS.Modules.Warrants
             SqlHelper.ExecuteNonQuery(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_add_judge_by_county", judgeId, countyid)
         End Sub
 
-        Public Overrides Sub DeleteJudgeCounty(judgeId As Integer, moduleId As integer)
+        Public Overrides Sub DeleteJudgeCounty(judgeId As Integer, moduleId As Integer)
             SqlHelper.ExecuteNonQuery(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_delete_judge_by_county", judgeId, moduleId)
         End Sub
 
-        Public Overrides Function ListCountiesByJudge(judgeId As Integer, moduleId As integer) As IDataReader
+        Public Overrides Function ListCountiesByJudge(judgeId As Integer, moduleId As Integer) As IDataReader
             Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_list_counties_by_judge", judgeId, moduleId), IDataReader)
         End Function
 
-        Public Overrides Function ListJudgesByCounty(countyId As Integer, moduleId As integer) As IDataReader
+        Public Overrides Function ListJudgesByCounty(countyId As Integer, moduleId As Integer) As IDataReader
             Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_list_judges_by_county", countyId, moduleId), IDataReader)
         End Function
 
@@ -421,15 +424,15 @@ Namespace AWS.Modules.Warrants
         End Function
 
         ''' Following added for multiple Divisions per Judge
-        Public Overrides Function ListJudgeTypesByJudge(judgeid As Integer, moduleId As integer) As IDataReader
-            Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_list_judge_types_by_judge", judgeid,moduleId), IDataReader)
+        Public Overrides Function ListJudgeTypesByJudge(judgeid As Integer, moduleId As Integer) As IDataReader
+            Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_list_judge_types_by_judge", judgeid, moduleId), IDataReader)
         End Function
 
         Public Overrides Sub AddJudgeJudgeTypeXref(judgeId As Integer, judgeTypeId As Integer)
             SqlHelper.ExecuteNonQuery(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_add_judge_by_judge_type", judgeId, judgeTypeId)
         End Sub
 
-        Public Overrides Sub DeleteJudgeJudgeTypeXref(judgeId As Integer, moduleId As integer)
+        Public Overrides Sub DeleteJudgeJudgeTypeXref(judgeId As Integer, moduleId As Integer)
             SqlHelper.ExecuteNonQuery(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_warrant_delete_judge_by_judge_type", judgeId, moduleId)
         End Sub
 

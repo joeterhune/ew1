@@ -203,7 +203,10 @@ Namespace AWS.Modules.Warrants
             ' Return CType(CBO.FillObject(DataProvider.Instance().GetUser(moduleId, userId), GetType(AgencyUserInfo)), AgencyUserInfo)
             Return CBO.FillObject(Of AgencyUserInfo)(DataProvider.Instance().GetUser(moduleId, userId))
         End Function
-
+        Public Function ListUserAgencies(moduleId As Integer, ByVal userId As Integer) As List(Of AgencyUserInfo)
+            ' Return CType(CBO.FillObject(DataProvider.Instance().GetUser(moduleId, userId), GetType(AgencyUserInfo)), AgencyUserInfo)
+             Return CBO.FillCollection(Of AgencyUserInfo)(DataProvider.Instance().ListUserAgencies(moduleId,userId))
+        End Function
         Public Function GetAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer) As AgencyUserInfo
             '    Return CType(CBO.FillObject(DataProvider.Instance().GetAgencyUser(agencyId, userId), GetType(AgencyUserInfo)), AgencyUserInfo)
             Return CBO.FillObject(Of AgencyUserInfo)(DataProvider.Instance().GetAgencyUser(agencyId, userId))

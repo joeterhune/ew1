@@ -102,6 +102,7 @@ Namespace AWS.Modules.Injunctions
             End If
         End Sub
 
+
         Private Function GetCoverJudge(coverJudgeId As Integer) As UserInfo
             Return UserController.GetUserById(PortalId, coverJudgeId)
         End Function
@@ -111,103 +112,6 @@ Namespace AWS.Modules.Injunctions
         ''' </summary>
         ''' <param name="agencyName">Name of the Sending Agency</param>
         ''' <param name="DocumentId">Unique Id of the Document</param>
-        Private Sub SendEmailResponse(agencyName As String, DocumentId As String)
-            Dim fromaddress As String = UserInfo.Email
-            Dim ctl As New Controller
-            Dim nCtl As New AWS.Modules.Notifications.Controller
-            Judgeinfo = UserController.GetUserById(PortalId, hdJudgeId.Value)
-            Dim CoverJudgeInfo As UserInfo = Nothing
-            Dim subject As String = ""
-            Dim userDisplay As String = ""
-            Dim body As String = ""
-            If Not Judgeinfo Is Nothing Then
-                Dim toAddress As String = Judgeinfo.Email
-                Dim address2 As String = ""
-                Dim address3 As String = ""
-                Dim colNotifications As New List(Of AWS.Modules.Notifications.NotificationInfo)
-                colNotifications = nCtl.ListCurrentNotificationsByJudge(Judgeinfo.UserID)
-                If Not colNotifications Is Nothing AndAlso colNotifications.Count > 0 Then
-                    Dim objNotification As AWS.Modules.Notifications.NotificationInfo = colNotifications.FirstOrDefault
-                    isOutofOffice = True
-                    If objNotification.CoveringJudgeId > 0 Then
-                        CoverJudgeInfo = GetCoverJudge(objNotification.CoveringJudgeId)
-                        toAddress = CoverJudgeInfo.Email
-                        coverJudgeName = CoverJudgeInfo.DisplayName
-                        If Not CoverJudgeInfo.Profile.ProfileProperties("Email2") Is Nothing Then
-                            address2 = CoverJudgeInfo.Profile.ProfileProperties("Email2").PropertyValue
-                        End If
-                        If Not CoverJudgeInfo.Profile.ProfileProperties("Email3") Is Nothing Then
-                            address3 = CoverJudgeInfo.Profile.ProfileProperties("Email3").PropertyValue
-                        End If
-                        subject = "New Document Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
-                        userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new Document (ID: " & DocumentId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
-                        body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that Submissions be forwarded to you during their absence."
-
-                        Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
-                        If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
-                        End If
-                        If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
-                        End If
-
-                        subject = "Out of Office Notice"
-                        body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
-                        body += "Your notification has been forwarded to the Honorable " & coverJudgeName
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
-
-                    Else
-                        subject = "New Document Submitted for Review"
-                        userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new Document has been submitted by " & userDisplay & " from " & agencyName
-                        If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
-                            address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
-                        End If
-                        If Not Judgeinfo.Profile.ProfileProperties("Email3") Is Nothing Then
-                            address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
-                        End If
-
-                        Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
-                        If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
-                        End If
-                        If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
-                        End If
-
-                        subject = "Out of Office Notice"
-                        body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. Please review the notice below" & vbCrLf & vbCrLf
-                        body += objNotification.MessageText
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
-                    End If
-
-                Else
-                    subject = "New Document Submitted for Review"
-                    userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                    body = "A new Document (ID: " & DocumentId & ") has been submitted by " & userDisplay & " from " & agencyName
-                    If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
-                        address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
-                    End If
-                    If Not Judgeinfo.Profile.ProfileProperties("Email3") Is Nothing Then
-                        address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
-                    End If
-
-                    Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
-                    If address2 <> "" Then
-                        Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
-                    End If
-                    If address3 <> "" Then
-                        Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
-                    End If
-
-                End If
-            Else
-                DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The selected Judge's record could not be found. No email notification can be sent", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
-            End If
-
-        End Sub
-
         Private Sub SendEmailResponse(agencyName As String, DocumentId As String, SendNow As Boolean)
             Dim fromaddress As String = UserInfo.Email
             Dim ctl As New Controller
@@ -339,6 +243,16 @@ Namespace AWS.Modules.Injunctions
                         If objAgency.IsClerk Then
                             Response.Redirect(NavigateURL)
                         End If
+                        If Not objagencyUser Is Nothing Then
+                            drpAgency.DataValueField = "AgencyId"
+                            drpAgency.DataTextField = "AgencyName"
+                            drpAgency.DataSource = ctl.ListUserAgencies(ModuleId, UserId)
+                            drpAgency.DataBind()
+                            drpAgency.SelectedValue = objagencyUser.AgencyId.ToString()
+                            If drpAgency.Items.Count > 1 Then
+                                agencyDiv.Visible = True
+                            End If
+                        End If
 
                         BindOffenseTypes(AgencyId)
                     Else
@@ -387,7 +301,7 @@ Namespace AWS.Modules.Injunctions
         Private Sub cmdUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles cmdUpdate.Click
             Try
                 Dim objInjunction As New InjunctionsInfo
-
+                AgencyId=Int32.Parse( drpAgency.SelectedValue)
                 If hdFileId.Value <> "" Then
                     objInjunction.FileId = hdFileId.Value
                 Else

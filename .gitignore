@@ -340,3 +340,26 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+*.resources
+/Portals/0/Dnn.CKEditorSettings.xml
+/Portals/0/Dnn.CKToolbarButtons.xml
+/Portals/0/Dnn.CKToolbarSets.xml
+/Portals/_default/Dnn.CKToolbarSets.xml
+/Portals/_default/Dnn.CKToolbarButtons.xml
+/Portals/_default/Dnn.CKEditorDefaultSettings.xml
+/App_Data/Search/segments_18
+/App_Data/Search/_17.cfs
+/App_Data/Search/_16.cfs
+/App_Data/Search/_15.cfs
+/App_Data/Search/_14_1.del
+/App_Data/Search/_14.tvx
+/App_Data/Search/_14.tvf
+/App_Data/Search/_14.tvd
+/App_Data/Search/_14.tis
+/App_Data/Search/_14.tii
+/App_Data/Search/_14.prx
+/App_Data/Search/_14.nrm
+/App_Data/Search/_14.frq
+/App_Data/Search/_14.fnm
+/App_Data/Search/_14.fdx
+/App_Data/Search/_14.fdt

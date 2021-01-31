@@ -17,7 +17,7 @@
 ' CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 ' DEALINGS IN THE SOFTWARE.
 
-imports DotNetNuke
+Imports DotNetNuke
 
 Namespace AWS.Modules.Warrants
 
@@ -96,7 +96,7 @@ Namespace AWS.Modules.Warrants
                     drpCounty.SelectedIndex = 1
                 End If
             Else
-               DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "Your agencies county list has not been properly configured.  Please contact your site administrator with this message.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
+                DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "Your agencies county list has not been properly configured.  Please contact your site administrator with this message.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
             End If
         End Sub
 
@@ -338,6 +338,17 @@ Namespace AWS.Modules.Warrants
                         If objAgency.IsClerk Then
                             Response.Redirect(NavigateURL)
                         End If
+                        If Not objagencyUser Is Nothing Then
+                            drpAgency.DataValueField = "AgencyId"
+                            drpAgency.DataTextField = "AgencyName"
+                            drpAgency.DataSource = ctl.ListUserAgencies(ModuleId, UserId)
+                            drpAgency.DataBind()
+                            drpAgency.SelectedValue = objagencyUser.AgencyId.ToString()
+                            If drpAgency.Items.Count > 1 Then
+                                agencyDiv.Visible = True
+                            End If
+                        End If
+
                         BindOffenseTypes(AgencyId)
                     Else
                         DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "Invalid User Access.  Please contact the site administrator with the error.", Skins.Controls.ModuleMessage.ModuleMessageType.RedError)
@@ -386,6 +397,7 @@ Namespace AWS.Modules.Warrants
             Try
                 If chkAffidavit.Checked And chkWarrant.Checked Then
                     Dim objwarrant As New WarrantsInfo
+                    AgencyId = Int32.Parse(drpAgency.SelectedValue)
 
                     If hdFileId.Value <> "" Then
                         objwarrant.FileId = hdFileId.Value

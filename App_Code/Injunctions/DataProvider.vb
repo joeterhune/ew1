@@ -108,6 +108,8 @@ Namespace AWS.Modules.Injunctions
         Public MustOverride Sub DeleteAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer)
         Public MustOverride Function GetUser(moduleId As Integer, userId As Integer) As IDataReader
         Public MustOverride Function ListAgencyUsers(agencyId As Integer) As IDataReader
+        Public MustOverride Function ListUserAgencies(moduleId As Integer, userId As Integer) As IDataReader
+
 #End Region
 
 #Region "Agencies Methods"
@@ -125,7 +127,7 @@ Namespace AWS.Modules.Injunctions
 #Region "Judge Methods"
         Public MustOverride Function GetJudge(judgeId As Integer) As IDataReader
         Public MustOverride Function ListJudges(ByVal ModuleId As Integer) As IDataReader
-        Public MustOverride Function AddJudge(ByVal ModuleId As Integer, judgeId As Integer, signature As Integer, initial As Integer, judgeTypeId As Integer, dayStart As DateTime, dayEnd As DateTime) As integer
+        Public MustOverride Function AddJudge(ByVal ModuleId As Integer, judgeId As Integer, signature As Integer, initial As Integer, judgeTypeId As Integer, dayStart As DateTime, dayEnd As DateTime) As Integer
         Public MustOverride Sub UpdateJudge(judgeId As Integer, signature As Integer, initial As Integer, judgeTypeId As Integer, dayStart As DateTime, dayEnd As DateTime)
         Public MustOverride Sub DeleteJudge(judgeId As Integer)
         Public MustOverride Sub UpdateJudgeApproval(judgeId As Integer, approved As String)
@@ -149,9 +151,9 @@ Namespace AWS.Modules.Injunctions
         Public MustOverride Function ListCounties(moduleId As Integer) As IDataReader
         ' multiple counties per judge
         Public MustOverride Sub AddJudgeCounty(judgeId As Integer, countyid As Integer)
-        Public MustOverride Sub DeleteJudgeCounty(judgeId As Integer,moduleId As integer)
+        Public MustOverride Sub DeleteJudgeCounty(judgeId As Integer, moduleId As Integer)
         Public MustOverride Function ListCountiesByJudge(judgeId As Integer, moduleId As Integer) As IDataReader
-        Public MustOverride Function ListJudgesByCounty(countyId As Integer, moduleId as integer) As IDataReader
+        Public MustOverride Function ListJudgesByCounty(countyId As Integer, moduleId As Integer) As IDataReader
 
 #End Region
 
@@ -164,9 +166,9 @@ Namespace AWS.Modules.Injunctions
 
         ''' Following Added for multiple divisions per Judge
         Public MustOverride Sub AddJudgeJudgeTypeXref(judgeId As Integer, judgeTypeId As Integer)
-        Public MustOverride Sub DeleteJudgeJudgeTypeXref(judgeId As Integer, moduleId As integer)
+        Public MustOverride Sub DeleteJudgeJudgeTypeXref(judgeId As Integer, moduleId As Integer)
         Public MustOverride Function ListJudgesByJudgeType(judgeTypeId As Integer, moduleId As Integer) As IDataReader
-        Public MustOverride Function ListJudgeTypesByJudge(judgeId As Integer,moduleId As integer) As IDataReader
+        Public MustOverride Function ListJudgeTypesByJudge(judgeId As Integer, moduleId As Integer) As IDataReader
 #End Region
 
     End Class

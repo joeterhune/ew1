@@ -23,6 +23,13 @@
             <p class="info clearfix"></p>
         </div>
         <h2 id="dnnPanel-FileInfo" class="dnnFormSectionHead">Enter Warrant Information</h2>
+        <div class="dnnFormItem" id="agencyDiv" runat="server" visible="false">
+            <dnn:Label ID="lblAgency" runat="server" ControlName="drpAgency" Text="Agency" Suffix=":" CssClass="dnnFormRequired" HelpText="Select the Associated Agency"></dnn:Label>
+            <asp:DropDownList ID="drpAgency" runat="server" onchange="FillJudges()" TabIndex="0"></asp:DropDownList>
+            <asp:RequiredFieldValidator ID="valAgency" ControlToValidate="txtTitle"
+                CssClass="dnnFormMessage dnnFormError" Display="Dynamic" ErrorMessage="Please select an agency" runat="server" />
+        </div>
+
         <div class="dnnFormItem">
             <dnn:Label ID="lblTitle" runat="server" ControlName="txtTitle" Text="Title" Suffix=":" CssClass="dnnFormRequired" HelpText="Enter Warrant Title"></dnn:Label>
             <asp:TextBox ID="txtTitle" runat="server" MaxLength="50" CssClass="firstText NormalTextBox" TabIndex="1" />

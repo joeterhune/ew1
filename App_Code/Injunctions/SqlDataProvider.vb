@@ -304,6 +304,10 @@ Namespace AWS.Modules.Injunctions
         Public Overrides Sub DeleteAgencyUser(ByVal agencyId As Integer, ByVal userId As Integer)
             SqlHelper.ExecuteNonQuery(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_injunction_delete_agency_user", agencyId, userId)
         End Sub
+
+          Public Overrides Function ListUserAgencies(moduleId As Integer, userId As Integer) As IDataReader
+            Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_injunction_get_user", ModuleId, userId), IDataReader)
+        End Function
 #End Region
 
 #Region "Judge Methods"
@@ -447,6 +451,8 @@ Namespace AWS.Modules.Injunctions
         Public Overrides Function GetAnnotations(userId As Integer) As IDataReader
             Return CType(SqlHelper.ExecuteReader(ConnectionString, DatabaseOwner & ObjectQualifier & "aws_injunction_get_annotations", userId), IDataReader)
         End Function
+
+      
 #End Region
 
     End Class
