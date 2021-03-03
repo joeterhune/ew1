@@ -44,7 +44,7 @@ Namespace AWS.Modules.Warrants
 
 
                 'To log note
-                Me.ScheduleHistoryItem.AddLogNote(" Queued Warrant Notifications Sent Successfully")
+                Me.ScheduleHistoryItem.AddLogNote(" Queued Notifications Sent Successfully")
                 'Show success
                 Me.ScheduleHistoryItem.Succeeded = True
 
@@ -100,10 +100,10 @@ Namespace AWS.Modules.Warrants
                                 If Not CoverJudgeInfo.Profile.ProfileProperties("Email3") Is Nothing Then
                                     address3 = CoverJudgeInfo.Profile.ProfileProperties("Email3").PropertyValue
                                 End If
-                                subject = "New Warrant Forwarded from  " & judge.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
+                                subject = "New Document Forwarded from  " & judge.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
                                 userDisplay = sender.DisplayName.Replace("&nbsp;", " ")
-                                body = "A new warrant (ID: " & w.WarrantId & ")  has been submitted by " & userDisplay & " from " & w.AgencyName & vbCrLf & vbCrLf
-                                body += judge.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that warrants be forwarded to you during their absence."
+                                body = "A new document (ID: " & w.WarrantId & ")  has been submitted by " & userDisplay & " from " & w.AgencyName & vbCrLf & vbCrLf
+                                body += judge.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
                                 Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
                                 If address2 <> "" Then
                                     Mail.Mail.SendEmail(fromaddress, address2, subject, body)
@@ -116,9 +116,9 @@ Namespace AWS.Modules.Warrants
                         Else
                             Dim jInfo As JudgeInfo = ctl.GetJudge(w.JudgeUserId)
                             If DateTime.Now.TimeOfDay >= jInfo.DayStart.TimeOfDay And DateTime.Now.TimeOfDay <= jInfo.DayEnd.TimeOfDay Then
-                                subject = "New Warrant Submitted for Review"
+                                subject = "New Document Submitted for Review"
                                 userDisplay = sender.DisplayName.Replace("&nbsp;", " ")
-                                body = "A new warrant has been submitted by " & userDisplay & " from " & w.AgencyName
+                                body = "A new document has been submitted by " & userDisplay & " from " & w.AgencyName
                                 If Not judge.Profile.ProfileProperties("Email2") Is Nothing Then
                                     address2 = judge.Profile.ProfileProperties("Email2").PropertyValue
                                 End If
@@ -142,9 +142,9 @@ Namespace AWS.Modules.Warrants
                         Dim jInfo As JudgeInfo = ctl.GetJudge(w.JudgeUserId)
                         If DateTime.Now.TimeOfDay >= jInfo.DayStart.TimeOfDay And DateTime.Now.TimeOfDay <= jInfo.DayEnd.TimeOfDay Then
 
-                            subject = "New Warrant Submitted for Review"
+                            subject = "New Document Submitted for Review"
                             userDisplay = sender.DisplayName.Replace("&nbsp;", " ")
-                            body = "A new warrant (ID: " & w.WarrantId & ") has been submitted by " & userDisplay & " from " & w.AgencyName
+                            body = "A new document (ID: " & w.WarrantId & ") has been submitted by " & userDisplay & " from " & w.AgencyName
                             If Not judge.Profile.ProfileProperties("Email2") Is Nothing Then
                                 address2 = judge.Profile.ProfileProperties("Email2").PropertyValue
                             End If

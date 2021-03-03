@@ -35,7 +35,7 @@ Namespace AWS.Modules.Warrants
                         signedThreshold = ws.SignedThreshold
                         Dim colWarrants As List(Of WarrantsInfo) = ctl.GetUnsignedWarrants(ws.ModuleId, Date.Now.AddDays(-signedThreshold))
                         If Not colWarrants Is Nothing AndAlso colWarrants.Count > 0 Then
-                            EmailWarrantAlerts(colWarrants, senderEmail, notificationEmail, "The following warrants have been waiting for review for over " & signedThreshold.ToString & " days.")
+                            EmailWarrantAlerts(colWarrants, senderEmail, notificationEmail, "The following documents have been waiting for review for over " & signedThreshold.ToString & " days.")
                         End If
                     End If
                 Next
@@ -74,7 +74,7 @@ Namespace AWS.Modules.Warrants
                     createdDate = w.CreatedDate.ToShortDateString
                 End If
                 sbWarrantList.Append(vbCrLf)
-                sbWarrantList.Append("Warrant ID: ")
+                sbWarrantList.Append("Document ID: ")
                 sbWarrantList.Append(w.WarrantId)
                 sbWarrantList.Append(vbCrLf)
                 sbWarrantList.Append(" Title:")
@@ -90,7 +90,7 @@ Namespace AWS.Modules.Warrants
                 sbWarrantList.Append(JudgeName)
                 sbWarrantList.Append(vbCrLf)
             Next
-            Dim subject As String = "eWarrant Alert"
+            Dim subject As String = "eSubmit Alert"
 
             body += sbWarrantList.ToString
 
