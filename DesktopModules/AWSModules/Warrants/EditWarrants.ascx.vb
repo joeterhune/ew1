@@ -1,5 +1,5 @@
 ' 
-' DotNetNuke® - http:'www.dotnetnuke.com
+' DotNetNukeÂ® - http:'www.dotnetnuke.com
 ' Copyright (c) 2002-2011
 ' by DotNetNuke Corporation
 ' 
@@ -110,6 +110,11 @@ Namespace AWS.Modules.Warrants
         ''' <param name="agencyName">Name of the Sending Agency</param>
         ''' <param name="warrantId">Unique Id of the Warrant</param>
         Private Sub SendEmailResponse(agencyName As String, warrantId As String)
+            Dim objSettings As WarrantConfigSettings = ctl.GetModuleSettings(ModuleId)
+            Dim senderEmail = "ewarrants@flcourts1.gov"
+            If Not objSettings Is Nothing Then
+                senderEmail = objSettings.SenderEmail
+            End If
             Dim fromaddress As String = UserInfo.Email
             Dim ctl As New Controller
             Dim nCtl As New AWS.Modules.Notifications.Controller
@@ -142,18 +147,18 @@ Namespace AWS.Modules.Warrants
                         body = "A new Document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
                         body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
 
-                        Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
+                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, senderEmail, subject, body)
                         If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                         End If
                         If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
                         End If
 
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
                         body += "Your document notification has been forwarded to the Honorable " & coverJudgeName
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
 
                     Else
                         subject = "New Document Submitted for Review"
@@ -166,18 +171,18 @@ Namespace AWS.Modules.Warrants
                             address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
 
-                        Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
+                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
                         If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                         End If
                         If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
                         End If
 
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. Please review the notice below" & vbCrLf & vbCrLf
                         body += objNotification.MessageText
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
                     End If
 
                 Else
@@ -191,12 +196,12 @@ Namespace AWS.Modules.Warrants
                         address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                     End If
 
-                    Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
+                    Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
                     If address2 <> "" Then
-                        Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
+                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                     End If
                     If address3 <> "" Then
-                        Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
+                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
                     End If
 
                 End If
@@ -207,6 +212,12 @@ Namespace AWS.Modules.Warrants
         End Sub
 
         Private Sub SendEmailResponse(agencyName As String, warrantId As String, SendNow As Boolean)
+            Dim objSettings As WarrantConfigSettings = ctl.GetModuleSettings(ModuleId)
+            Dim senderEmail = "ewarrants@flcourts1.gov"
+            If Not objSettings Is Nothing Then
+                senderEmail = objSettings.SenderEmail
+            End If
+
             Dim fromaddress As String = UserInfo.Email
             Dim ctl As New Controller
             Dim nCtl As New AWS.Modules.Notifications.Controller
@@ -238,18 +249,18 @@ Namespace AWS.Modules.Warrants
                         body = "A new document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
                         body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
                         If SendNow Then
-                            Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
                             If address2 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
+                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                             End If
                             If address3 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
+                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
                             End If
                         End If
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
                         body += "Your document notification has been forwarded to the Honorable " & coverJudgeName
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
 
                     Else
                         subject = "New Document Submitted for Review"
@@ -262,18 +273,18 @@ Namespace AWS.Modules.Warrants
                             address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
                         If SendNow Then
-                            Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
                             If address2 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
+                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                             End If
                             If address3 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
+                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
                             End If
                         End If
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. Please review the notice below" & vbCrLf & vbCrLf
                         body += objNotification.MessageText
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
                     End If
 
                 Else
@@ -287,12 +298,12 @@ Namespace AWS.Modules.Warrants
                         address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                     End If
                     If SendNow Then
-                        Services.Mail.Mail.SendEmail(fromaddress, toAddress, subject, body)
+                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
                         If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address2, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                         End If
                         If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, address3, subject, body)
+                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
                         End If
                     End If
                 End If
