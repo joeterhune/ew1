@@ -110,14 +110,15 @@ Namespace AWS.Modules.Warrants
         ''' <param name="agencyName">Name of the Sending Agency</param>
         ''' <param name="warrantId">Unique Id of the Warrant</param>
         Private Sub SendEmailResponse(agencyName As String, warrantId As String)
+		  Dim ctl As New Controller
+            Dim nCtl As New AWS.Modules.Notifications.Controller
             Dim objSettings As WarrantConfigSettings = ctl.GetModuleSettings(ModuleId)
             Dim senderEmail = "ewarrants@flcourts1.gov"
             If Not objSettings Is Nothing Then
                 senderEmail = objSettings.SenderEmail
             End If
             Dim fromaddress As String = UserInfo.Email
-            Dim ctl As New Controller
-            Dim nCtl As New AWS.Modules.Notifications.Controller
+          
             Judgeinfo = UserController.GetUserById(PortalId, hdJudgeId.Value)
             Dim CoverJudgeInfo As UserInfo = Nothing
             Dim subject As String = ""
@@ -212,14 +213,15 @@ Namespace AWS.Modules.Warrants
         End Sub
 
         Private Sub SendEmailResponse(agencyName As String, warrantId As String, SendNow As Boolean)
-            Dim objSettings As WarrantConfigSettings = ctl.GetModuleSettings(ModuleId)
+            
+            Dim ctl As New Controller
+			Dim objSettings As WarrantConfigSettings = ctl.GetModuleSettings(ModuleId)
             Dim senderEmail = "ewarrants@flcourts1.gov"
             If Not objSettings Is Nothing Then
                 senderEmail = objSettings.SenderEmail
             End If
 
             Dim fromaddress As String = UserInfo.Email
-            Dim ctl As New Controller
             Dim nCtl As New AWS.Modules.Notifications.Controller
             Judgeinfo = UserController.GetUserById(PortalId, hdJudgeId.Value)
             Dim CoverJudgeInfo As UserInfo = Nothing
