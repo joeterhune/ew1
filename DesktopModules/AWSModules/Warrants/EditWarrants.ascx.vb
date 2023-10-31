@@ -148,7 +148,7 @@ Namespace AWS.Modules.Warrants
                         body = "A new Document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
                         body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
 
-                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, senderEmail, subject, body)
+                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
                         If address2 <> "" Then
                             Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
                         End If
