@@ -146,7 +146,7 @@ Namespace AWS.Modules.Warrants
                         body = "A new Document (ID: " & warrantId & ")  has been submitted by " & UserInfo.Email & " from " & agencyName & vbCrLf & vbCrLf
                         body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
 
-                        Services.Mail.Mail.SendEmail(senderEmail, toAddress, senderEmail, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, toAddress, subject, body)
                         If address2 <> "" Then
                             Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                         End If
@@ -157,7 +157,7 @@ Namespace AWS.Modules.Warrants
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
                         body += "Your document notification has been forwarded to the Honorable " & coverJudgeName
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, UserInfo.Email, subject, body)
 
                     Else
                         subject = "New Document Submitted for Review"
@@ -180,7 +180,7 @@ Namespace AWS.Modules.Warrants
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. Please review the notice below" & vbCrLf & vbCrLf
                         body += objNotification.MessageText
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, UserInfo.Email, subject, body)
                     End If
 
                 Else
@@ -256,7 +256,7 @@ Namespace AWS.Modules.Warrants
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. " & vbCrLf & vbCrLf
                         body += "Your document notification has been forwarded to the Honorable " & coverJudgeName
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, UserInfo.Email, subject, body)
 
                     Else
                         subject = "New Document Submitted for Review"
@@ -279,7 +279,7 @@ Namespace AWS.Modules.Warrants
                         subject = "Out of Office Notice"
                         body = " The Honorable " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is Out of the Office. Please review the notice below" & vbCrLf & vbCrLf
                         body += objNotification.MessageText
-                        Services.Mail.Mail.SendEmail(PortalSettings.Email, senderEmail, UserInfo.Email, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, UserInfo.Email, subject, body)
                     End If
 
                 Else
