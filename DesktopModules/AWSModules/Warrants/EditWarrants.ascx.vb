@@ -122,7 +122,6 @@ Namespace AWS.Modules.Warrants
             Judgeinfo = UserController.GetUserById(PortalId, hdJudgeId.Value)
             Dim CoverJudgeInfo As UserInfo = Nothing
             Dim subject As String = ""
-            Dim userDisplay As String = ""
             Dim body As String = ""
             If Not Judgeinfo Is Nothing Then
                 Dim toAddress As String = Judgeinfo.Email
@@ -144,16 +143,15 @@ Namespace AWS.Modules.Warrants
                             address3 = CoverJudgeInfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
                         subject = "New Document Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
-                        userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new Document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
+                        body = "A new Document (ID: " & warrantId & ")  has been submitted by " & UserInfo.Email & " from " & agencyName & vbCrLf & vbCrLf
                         body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
 
-                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, toAddress, senderEmail, subject, body)
                         If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                         End If
                         If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, address3, subject, body)
                         End If
 
                         subject = "Out of Office Notice"
@@ -163,8 +161,7 @@ Namespace AWS.Modules.Warrants
 
                     Else
                         subject = "New Document Submitted for Review"
-                        userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new document has been submitted by " & userDisplay & " from " & agencyName
+                        body = "A new document has been submitted by " & UserInfo.Email & " from " & agencyName
                         If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                             address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                         End If
@@ -172,12 +169,12 @@ Namespace AWS.Modules.Warrants
                             address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
 
-                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, toAddress, subject, body)
                         If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                         End If
                         If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, address3, subject, body)
                         End If
 
                         subject = "Out of Office Notice"
@@ -188,8 +185,7 @@ Namespace AWS.Modules.Warrants
 
                 Else
                     subject = "New Document Submitted for Review"
-                    userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                    body = "A new document (ID: " & warrantId & ") has been submitted by " & userDisplay & " from " & agencyName
+                    body = "A new document (ID: " & warrantId & ") has been submitted by " & UserInfo.Email & " from " & agencyName
                     If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                         address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                     End If
@@ -197,12 +193,12 @@ Namespace AWS.Modules.Warrants
                         address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                     End If
 
-                    Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
+                    Services.Mail.Mail.SendEmail(senderEmail, toAddress, subject, body)
                     If address2 <> "" Then
-                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                     End If
                     If address3 <> "" Then
-                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, address3, subject, body)
                     End If
 
                 End If
@@ -226,7 +222,6 @@ Namespace AWS.Modules.Warrants
             Judgeinfo = UserController.GetUserById(PortalId, hdJudgeId.Value)
             Dim CoverJudgeInfo As UserInfo = Nothing
             Dim subject As String = ""
-            Dim userDisplay As String = ""
             Dim body As String = ""
             If Not Judgeinfo Is Nothing Then
                 Dim toAddress As String = Judgeinfo.Email
@@ -247,16 +242,15 @@ Namespace AWS.Modules.Warrants
                             address3 = CoverJudgeInfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
                         subject = "New Document Forwarded from  " & Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " for Your Review"
-                        userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new document (ID: " & warrantId & ")  has been submitted by " & userDisplay & " from " & agencyName & vbCrLf & vbCrLf
+                        body = "A new document (ID: " & warrantId & ")  has been submitted by " & UserInfo.Email & " from " & agencyName & vbCrLf & vbCrLf
                         body += Judgeinfo.DisplayName.Replace("&nbsp;", " ") & " is out of the office and has asked that documents be forwarded to you during their absence."
                         If SendNow Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, toAddress, subject, body)
                             If address2 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
+                                Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                             End If
                             If address3 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
+                                Services.Mail.Mail.SendEmail(senderEmail, address3, subject, body)
                             End If
                         End If
                         subject = "Out of Office Notice"
@@ -266,8 +260,7 @@ Namespace AWS.Modules.Warrants
 
                     Else
                         subject = "New Document Submitted for Review"
-                        userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                        body = "A new document has been submitted by " & userDisplay & " from " & agencyName
+                        body = "A new document has been submitted by " & UserInfo.Email & " from " & agencyName
                         If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                             address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                         End If
@@ -275,12 +268,12 @@ Namespace AWS.Modules.Warrants
                             address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                         End If
                         If SendNow Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, toAddress, subject, body)
                             If address2 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
+                                Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                             End If
                             If address3 <> "" Then
-                                Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
+                                Services.Mail.Mail.SendEmail(senderEmail, address3, subject, body)
                             End If
                         End If
                         subject = "Out of Office Notice"
@@ -291,8 +284,7 @@ Namespace AWS.Modules.Warrants
 
                 Else
                     subject = "New Document Submitted for Review"
-                    userDisplay = UserInfo.DisplayName.Replace("&nbsp;", " ")
-                    body = "A new document (ID: " & warrantId & ") has been submitted by " & userDisplay & " from " & agencyName
+                    body = "A new document (ID: " & warrantId & ") has been submitted by " & UserInfo.Email & " from " & agencyName
                     If Not Judgeinfo.Profile.ProfileProperties("Email2") Is Nothing Then
                         address2 = Judgeinfo.Profile.ProfileProperties("Email2").PropertyValue
                     End If
@@ -300,12 +292,12 @@ Namespace AWS.Modules.Warrants
                         address3 = Judgeinfo.Profile.ProfileProperties("Email3").PropertyValue
                     End If
                     If SendNow Then
-                        Services.Mail.Mail.SendEmail(fromaddress, senderEmail, toAddress, subject, body)
+                        Services.Mail.Mail.SendEmail(senderEmail, toAddress, subject, body)
                         If address2 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address2, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, address2, subject, body)
                         End If
                         If address3 <> "" Then
-                            Services.Mail.Mail.SendEmail(fromaddress, senderEmail, address3, subject, body)
+                            Services.Mail.Mail.SendEmail(senderEmail, address3, subject, body)
                         End If
                     End If
                 End If
