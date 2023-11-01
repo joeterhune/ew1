@@ -1,4 +1,4 @@
-﻿Imports Atalasoft.Imaging
+Imports Atalasoft.Imaging
 Imports Atalasoft.Imaging.ImageProcessing
 Imports Atalasoft.Imaging.WebControls
 Imports Atalasoft.Annotate.UI
