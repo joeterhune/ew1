@@ -1,5 +1,5 @@
 ' 
-' DotNetNuke® - http:'www.dotnetnuke.com
+' DotNetNukeÂ® - http:'www.dotnetnuke.com
 ' Copyright (c) 2002-2011
 ' by DotNetNuke Corporation
 ' 
@@ -244,7 +244,7 @@ Namespace AWS.Modules.Warrants
                 ClearForm()
                 If chkNotify.Checked Then
                     Dim body As String = "You can now login to " & PortalSettings.PortalName & " and submit warrants"
-                    Mail.SendEmail(UserInfo.Email, objUser.Email, "Welcome to the " & agencyInfo.AgencyName & " eWarrants group", body)
+                    Mail.SendEmail(PortalSettings.Email, objUser.Email, "Welcome to the " & agencyInfo.AgencyName & " eWarrants group", body)
                 End If
                 DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, "The User was added Successfully.", Skins.Controls.ModuleMessage.ModuleMessageType.GreenSuccess)
 
