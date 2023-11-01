@@ -1,5 +1,5 @@
 ' 
-' DotNetNuke® - http:'www.dotnetnuke.com
+' DotNetNukeÂ® - http:'www.dotnetnuke.com
 ' Copyright (c) 2002-2011
 ' by DotNetNuke Corporation
 ' 
@@ -259,7 +259,7 @@ Namespace AWS.Modules.Warrants
                     Next
                     Try 'Send email to Chief Judge
                         Dim objChiefJudge As UserInfo = UserController.GetUserByName(PortalId, ChiefJudge)
-                        Dim fromaddress As String = UserInfo.Email
+                        Dim fromaddress As String = PortalSettings.Email
                         Dim judgeAddress As String = objChiefJudge.Email
                         Dim subject As String = "New Judge Added to eWarrants Application"
                         Dim body As String = "Please log into the eWarrants site and access the Judge List to configure the new judge."
